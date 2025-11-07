@@ -23,32 +23,17 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Check if we're on the homepage
-  const isHomePage = pathname === "/";
-
   useEffect(() => {
-    // Reset scroll state when pathname changes
-    if (isHomePage) {
-      // Reset to initial state for homepage
-      setIsScrolled(window.scrollY > 50);
-    } else {
-      // Always use scrolled style for other pages
-      setIsScrolled(true);
-    }
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    // Only add scroll listener on homepage
-    if (isHomePage) {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, [isHomePage, pathname]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  // Determine navbar style based on page and scroll
-  const shouldUseScrolledStyle = !isHomePage || isScrolled;
+  // Same behavior for ALL pages: start transparent/dark, become white on scroll
+  const shouldUseScrolledStyle = isScrolled;
 
   return (
     <motion.nav
@@ -170,53 +155,48 @@ export function Navigation() {
             </AnimatePresence>
           </motion.button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className={cn(
-              "lg:hidden border-t overflow-hidden backdrop-blur-md",
-              shouldUseScrolledStyle
-                ? "bg-white/95 border-brand-green/10"
-                : "bg-black/30 border-white/10"
-            )}
-          >
-            <div className="px-4 py-6 space-y-2">
-              {navItems.map((item, index) => {
-                const isActive = pathname === item.href;
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ x: -30, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(
-                        "block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 border border-transparent",
-                        shouldUseScrolledStyle
-                          ? "text-brand-darkgray hover:bg-brand-green/5 hover:text-brand-green hover:border-brand-green/20"
-                          : "text-white hover:bg-white/10 hover:text-brand-green hover:border-white/20",
-                        isActive && "text-brand-green border-brand-green/20"
-                      )}
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="pt-4 pb-6 space-y-2">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.1 }}
                     >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={cn(
+                          "block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 border",
+                          shouldUseScrolledStyle
+                            ? "text-brand-darkgray hover:bg-brand-green/5 hover:text-brand-green hover:border-brand-green/20"
+                            : "text-white hover:bg-white/10 hover:text-brand-green hover:border-white/20",
+                          isActive && "text-brand-green border-brand-green/20"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.nav>
   );
 }

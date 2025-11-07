@@ -1,59 +1,109 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Target, Lightbulb, Users, TrendingUp, Award, MapPin, Calendar, CheckCircle } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Target,
+  Lightbulb,
+  Users,
+  TrendingUp,
+  Award,
+  MapPin,
+  Calendar,
+  CheckCircle,
+} from "lucide-react";
 // import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import { StatsSection } from '@/components/sections/StatsSection';
-import { CTASection } from '@/components/sections/CTASection';
-import Link from 'next/link';
+import { Button } from "@/components/ui/Button";
+import { StatsSection } from "@/components/sections/StatsSection";
+import { CTASection } from "@/components/sections/CTASection";
+import Link from "next/link";
 
 const aboutFeatures = [
   {
     icon: Target,
-    title: 'Notre Introduction',
-    description: 'Créée en 2012 au sein de l\'Institut National Agronomique de Tunisie (INAT), INAT Junior Entreprise est une organisation étudiante à but non lucratif opérant sous l\'égide de la Confédération Tunisienne des Junior-Entreprises (JET).',
-    gradient: 'from-brand-green/20 to-purple-500/20'
+    title: "Notre Introduction",
+    description:
+      "Créée en 2012 au sein de l'Institut National Agronomique de Tunisie (INAT), INAT Junior Entreprise est une organisation étudiante à but non lucratif opérant sous l'égide de la Confédération Tunisienne des Junior-Entreprises (JET).",
+    gradient: "from-brand-green/20 to-purple-500/20",
   },
   {
     icon: Lightbulb,
-    title: 'Notre Rôle',
-    description: 'Acteur majeur de l\'innovation étudiante en ingénierie agronomique, nous intervenons dans trois domaines clés : la formation, l\'organisation d\'événements et la réalisation de projets d\'étude et de conseil.',
-    gradient: 'from-blue-500/20 to-brand-green/20'
+    title: "Notre Rôle",
+    description:
+      "Acteur majeur de l'innovation étudiante en ingénierie agronomique, nous intervenons dans trois domaines clés : la formation, l'organisation d'événements et la réalisation de projets d'étude et de conseil.",
+    gradient: "from-blue-500/20 to-brand-green/20",
   },
   {
     icon: Users,
-    title: 'Nos Services',
-    description: 'Nos services englobent un large éventail de missions : analyses de marché, évaluations d\'impact environnemental, ainsi que études techniques et économiques, menées selon des méthodologies scientifiques rigoureuses et adaptées aux besoins de nos clients.',
-    gradient: 'from-emerald-500/20 to-teal-500/20'
+    title: "Nos Services",
+    description:
+      "Nos services englobent un large éventail de missions : analyses de marché, évaluations d'impact environnemental, ainsi que études techniques et économiques, menées selon des méthodologies scientifiques rigoureuses et adaptées aux besoins de nos clients.",
+    gradient: "from-emerald-500/20 to-teal-500/20",
   },
   {
     icon: TrendingUp,
-    title: 'Notre Force',
-    description: 'Forte de son ancrage académique et de son réseau professionnel, INAT Junior Entreprise allie expertise théorique et application pratique pour accompagner ses clients dans la concrétisation de leurs projets.',
-    gradient: 'from-amber-500/20 to-brand-green/20'
+    title: "Notre Force",
+    description:
+      "Forte de son ancrage académique et de son réseau professionnel, INAT Junior Entreprise allie expertise théorique et application pratique pour accompagner ses clients dans la concrétisation de leurs projets.",
+    gradient: "from-amber-500/20 to-brand-green/20",
   },
 ];
 
 const timeline = [
-  { year: '2012', event: 'Création d\'INAT Junior Entreprise', description: 'Fondation officielle au sein de l\'Institut National Agronomique' },
-  { year: '2015', event: 'Premier Forum d\'Emploi', description: 'Lancement de notre événement phare de networking' },
-  { year: '2018', event: 'Expansion des Services', description: 'Développement des services en hydroponie et irrigation' },
-  { year: '2022', event: 'Innovation Durable', description: 'Focus sur les solutions agronomiques durables' },
-  { year: '2025', event: 'Leadership Régional', description: 'Positionnement comme leader en innovation agronomique' },
+  {
+    year: "2012",
+    event: "Création d'INAT Junior Entreprise",
+    description:
+      "Fondation officielle au sein de l'Institut National Agronomique",
+  },
+  {
+    year: "2015",
+    event: "Premier Forum d'Emploi",
+    description: "Lancement de notre événement phare de networking",
+  },
+  {
+    year: "2018",
+    event: "Expansion des Services",
+    description: "Développement des services en hydroponie et irrigation",
+  },
+  {
+    year: "2022",
+    event: "Innovation Durable",
+    description: "Focus sur les solutions agronomiques durables",
+  },
+  {
+    year: "2025",
+    event: "Leadership Régional",
+    description: "Positionnement comme leader en innovation agronomique",
+  },
 ];
 
 const values = [
-  { title: 'Innovation', icon: Lightbulb, description: 'Pionnier dans les solutions agronomiques' },
-  { title: 'Excellence', icon: Award, description: 'Standards professionnels élevés' },
-  { title: 'Durabilité', icon: Target, description: 'Engagement environnemental fort' },
-  { title: 'Collaboration', icon: Users, description: 'Travail d\'équipe et partenariats' }
+  {
+    title: "Innovation",
+    icon: Lightbulb,
+    description: "Pionnier dans les solutions agronomiques",
+  },
+  {
+    title: "Excellence",
+    icon: Award,
+    description: "Standards professionnels élevés",
+  },
+  {
+    title: "Durabilité",
+    icon: Target,
+    description: "Engagement environnemental fort",
+  },
+  {
+    title: "Collaboration",
+    icon: Users,
+    description: "Travail d'équipe et partenariats",
+  },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-20 overflow-hidden">
+    <main className="min-h-screen  overflow-hidden">
       {/* Premium Hero Section with Glassmorphism */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-brand-darkgray">
         {/* Animated Background Elements */}
@@ -99,23 +149,26 @@ export default function AboutPage() {
                 className="inline-flex items-center space-x-2 px-6 py-3 bg-brand-green/20 backdrop-blur-sm border border-brand-green/30 rounded-full mb-8 shadow-lg"
               >
                 <Calendar size={20} className="text-brand-green" />
-                <span className="text-brand-green font-semibold">Depuis 2012</span>
+                <span className="text-brand-green font-semibold">
+                  Depuis 2012
+                </span>
               </motion.div>
-              
+
               <h1 className="text-5xl md:text-7xl font-heading font-bold text-white mb-8 leading-tight">
-                Plus qu'une{' '}
+                Plus qu'une{" "}
                 <span className="bg-gradient-to-r from-brand-green to-blue-400 bg-clip-text text-transparent">
                   Junior Entreprise
                 </span>
               </h1>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
                 className="text-xl md:text-2xl text-brand-neutral mb-8 leading-relaxed max-w-4xl mx-auto"
               >
-                Une aventure collective vers l'impact, l'apprentissage et l'innovation
+                Une aventure collective vers l'impact, l'apprentissage et
+                l'innovation
               </motion.p>
 
               <motion.div
@@ -125,13 +178,24 @@ export default function AboutPage() {
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <Link href="/contact">
-                  <Button variant="primary" size="lg" className="group shadow-2xl">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group shadow-2xl"
+                  >
                     Rejoignez-nous
-                    <Users size={20} className="group-hover:scale-110 transition-transform" />
+                    <Users
+                      size={20}
+                      className="group-hover:scale-110 transition-transform"
+                    />
                   </Button>
                 </Link>
                 <Link href="/services">
-                  <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/30 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm"
+                  >
                     Nos Services
                   </Button>
                 </Link>
@@ -154,7 +218,9 @@ export default function AboutPage() {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500`}
+              />
               <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:border-brand-green/30">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
@@ -192,7 +258,7 @@ export default function AboutPage() {
             className="absolute top-0 right-0 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl"
           />
         </div>
-        
+
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -210,7 +276,7 @@ export default function AboutPage() {
 
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-brand-green to-transparent"></div>
-            
+
             {timeline.map((item, index) => (
               <motion.div
                 key={item.year}
@@ -218,24 +284,30 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                className={`flex items-center mb-16 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                className={`flex items-center mb-16 ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                }`}
               >
                 <div className="w-1/2 pr-8 pl-8">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}
+                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 ${
+                      index % 2 === 0 ? "text-right" : "text-left"
+                    }`}
                   >
-                    <div className="text-3xl font-bold text-brand-green mb-2">{item.year}</div>
+                    <div className="text-3xl font-bold text-brand-green mb-2">
+                      {item.year}
+                    </div>
                     <h3 className="text-xl font-semibold mb-3">{item.event}</h3>
                     <p className="text-brand-neutral">{item.description}</p>
                   </motion.div>
                 </div>
-                
+
                 <motion.div
                   whileHover={{ scale: 1.2 }}
                   className="w-6 h-6 bg-brand-green rounded-full border-4 border-white shadow-lg z-10"
                 />
-                
+
                 <div className="w-1/2"></div>
               </motion.div>
             ))}

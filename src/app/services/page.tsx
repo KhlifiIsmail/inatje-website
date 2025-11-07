@@ -105,9 +105,9 @@ export default function ServicesPage() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen ">
       {/* Premium Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-brand-green/20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-brand-green/20 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <motion.div

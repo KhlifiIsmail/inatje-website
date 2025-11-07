@@ -1,88 +1,158 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Building2, Handshake, TrendingUp, Users, ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import {
+  Building2,
+  Handshake,
+  TrendingUp,
+  Users,
+  ArrowLeft,
+  ArrowRight,
+  ExternalLink,
+} from "lucide-react";
 // import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import { CTASection } from '@/components/sections/CTASection';
+import { Button } from "@/components/ui/Button";
+import { CTASection } from "@/components/sections/CTASection";
 
 // TODO: Replace with actual partner logos from public/images/partners/
 const partnerLogos = [
-  { name: 'Partner 1', logo: '/images/placeholders/partner-1.png', category: 'Entreprises', website: 'https://example.com' },
-  { name: 'Partner 2', logo: '/images/placeholders/partner-2.png', category: 'Institutions', website: 'https://example.com' },
-  { name: 'Partner 3', logo: '/images/placeholders/partner-3.png', category: 'ONG', website: 'https://example.com' },
-  { name: 'Partner 4', logo: '/images/placeholders/partner-4.png', category: 'Entreprises', website: 'https://example.com' },
-  { name: 'Partner 5', logo: '/images/placeholders/partner-5.png', category: 'Institutions', website: 'https://example.com' },
-  { name: 'Partner 6', logo: '/images/placeholders/partner-6.png', category: 'Entreprises', website: 'https://example.com' },
-  { name: 'Partner 7', logo: '/images/placeholders/partner-7.png', category: 'ONG', website: 'https://example.com' },
-  { name: 'Partner 8', logo: '/images/placeholders/partner-8.png', category: 'Institutions', website: 'https://example.com' },
-  { name: 'Partner 9', logo: '/images/placeholders/partner-9.png', category: 'Entreprises', website: 'https://example.com' },
-  { name: 'Partner 10', logo: '/images/placeholders/partner-10.png', category: 'Entreprises', website: 'https://example.com' },
-  { name: 'Partner 11', logo: '/images/placeholders/partner-11.png', category: 'ONG', website: 'https://example.com' },
-  { name: 'Partner 12', logo: '/images/placeholders/partner-12.png', category: 'Institutions', website: 'https://example.com' },
+  {
+    name: "Partner 1",
+    logo: "/images/placeholders/partner-1.png",
+    category: "Entreprises",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 2",
+    logo: "/images/placeholders/partner-2.png",
+    category: "Institutions",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 3",
+    logo: "/images/placeholders/partner-3.png",
+    category: "ONG",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 4",
+    logo: "/images/placeholders/partner-4.png",
+    category: "Entreprises",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 5",
+    logo: "/images/placeholders/partner-5.png",
+    category: "Institutions",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 6",
+    logo: "/images/placeholders/partner-6.png",
+    category: "Entreprises",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 7",
+    logo: "/images/placeholders/partner-7.png",
+    category: "ONG",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 8",
+    logo: "/images/placeholders/partner-8.png",
+    category: "Institutions",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 9",
+    logo: "/images/placeholders/partner-9.png",
+    category: "Entreprises",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 10",
+    logo: "/images/placeholders/partner-10.png",
+    category: "Entreprises",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 11",
+    logo: "/images/placeholders/partner-11.png",
+    category: "ONG",
+    website: "https://example.com",
+  },
+  {
+    name: "Partner 12",
+    logo: "/images/placeholders/partner-12.png",
+    category: "Institutions",
+    website: "https://example.com",
+  },
 ];
 
 const partnerStats = [
-  { label: 'Partenaires Actifs', value: '50+', icon: Building2 },
-  { label: 'Projets Collaboratifs', value: '120+', icon: Handshake },
-  { label: 'Années de Partenariat', value: '13', icon: TrendingUp },
-  { label: 'Étudiants Bénéficiaires', value: '1000+', icon: Users },
+  { label: "Partenaires Actifs", value: "50+", icon: Building2 },
+  { label: "Projets Collaboratifs", value: "120+", icon: Handshake },
+  { label: "Années de Partenariat", value: "13", icon: TrendingUp },
+  { label: "Étudiants Bénéficiaires", value: "1000+", icon: Users },
 ];
 
 const partnerCategories = [
   {
-    title: 'Entreprises Privées',
-    description: 'Partenaires commerciaux et industriels du secteur agricole',
+    title: "Entreprises Privées",
+    description: "Partenaires commerciaux et industriels du secteur agricole",
     icon: Building2,
-    count: partnerLogos.filter(p => p.category === 'Entreprises').length
+    count: partnerLogos.filter((p) => p.category === "Entreprises").length,
   },
   {
-    title: 'Institutions Académiques',
-    description: 'Universités et centres de recherche collaborateurs',
+    title: "Institutions Académiques",
+    description: "Universités et centres de recherche collaborateurs",
     icon: Users,
-    count: partnerLogos.filter(p => p.category === 'Institutions').length
+    count: partnerLogos.filter((p) => p.category === "Institutions").length,
   },
   {
-    title: 'ONG & Associations',
-    description: 'Organisations à but non lucratif partenaires',
+    title: "ONG & Associations",
+    description: "Organisations à but non lucratif partenaires",
     icon: Handshake,
-    count: partnerLogos.filter(p => p.category === 'ONG').length
-  }
+    count: partnerLogos.filter((p) => p.category === "ONG").length,
+  },
 ];
 
 const partnershipBenefits = [
   {
-    title: 'Accès aux Talents',
-    description: 'Recrutement direct des meilleurs étudiants et diplômés en agronomie',
-    icon: Users
+    title: "Accès aux Talents",
+    description:
+      "Recrutement direct des meilleurs étudiants et diplômés en agronomie",
+    icon: Users,
   },
   {
-    title: 'Innovation Collaborative',
-    description: 'Projets de R&D conjoints et développement de solutions innovantes',
-    icon: TrendingUp
+    title: "Innovation Collaborative",
+    description:
+      "Projets de R&D conjoints et développement de solutions innovantes",
+    icon: TrendingUp,
   },
   {
-    title: 'Réseau Professionnel',
-    description: 'Intégration dans notre écosystème d\'excellence agronomique',
-    icon: Handshake
+    title: "Réseau Professionnel",
+    description: "Intégration dans notre écosystème d'excellence agronomique",
+    icon: Handshake,
   },
   {
-    title: 'Visibilité & Branding',
-    description: 'Exposition auprès de la communauté étudiante et académique',
-    icon: Building2
-  }
+    title: "Visibilité & Branding",
+    description: "Exposition auprès de la communauté étudiante et académique",
+    icon: Building2,
+  },
 ];
 
 export default function PartenairesPage() {
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const scrollCarousel = (direction: 'left' | 'right') => {
+  const scrollCarousel = (direction: "left" | "right") => {
     if (carouselRef.current) {
       const scrollAmount = 300;
       carouselRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
       });
     }
   };
@@ -93,9 +163,9 @@ export default function PartenairesPage() {
       if (carouselRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
         if (scrollLeft + clientWidth >= scrollWidth) {
-          carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
-          carouselRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+          carouselRef.current.scrollBy({ left: 200, behavior: "smooth" });
         }
       }
     }, 3000);
@@ -104,9 +174,9 @@ export default function PartenairesPage() {
   }, []);
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-brand-green/10 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-brand-green/10 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <motion.div
@@ -134,15 +204,21 @@ export default function PartenairesPage() {
               className="inline-flex items-center space-x-2 px-6 py-3 bg-brand-green/20 backdrop-blur-sm border border-brand-green/30 rounded-full shadow-lg"
             >
               <Handshake size={20} className="text-brand-green" />
-              <span className="text-brand-green font-semibold">Écosystème Collaboratif</span>
+              <span className="text-brand-green font-semibold">
+                Écosystème Collaboratif
+              </span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight">
-              Nos <span className="bg-gradient-to-r from-brand-green to-blue-400 bg-clip-text text-transparent">Partenaires</span>
+              Nos{" "}
+              <span className="bg-gradient-to-r from-brand-green to-blue-400 bg-clip-text text-transparent">
+                Partenaires
+              </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-brand-neutral max-w-4xl mx-auto leading-relaxed">
-              Ils nous font confiance et collaborent avec nous pour l'innovation agronomique
+              Ils nous font confiance et collaborent avec nous pour l'innovation
+              agronomique
             </p>
 
             {/* Stats Grid */}
@@ -163,7 +239,9 @@ export default function PartenairesPage() {
                   <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
                     <stat.icon className="w-8 h-8 text-brand-green" />
                   </div>
-                  <div className="text-3xl font-bold text-brand-green mb-1">{stat.value}</div>
+                  <div className="text-3xl font-bold text-brand-green mb-1">
+                    {stat.value}
+                  </div>
                   <div className="text-sm text-brand-neutral">{stat.label}</div>
                 </motion.div>
               ))}
@@ -241,7 +319,7 @@ export default function PartenairesPage() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => scrollCarousel('left')}
+            onClick={() => scrollCarousel("left")}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
           >
             <ArrowLeft size={20} />
@@ -250,7 +328,7 @@ export default function PartenairesPage() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => scrollCarousel('right')}
+            onClick={() => scrollCarousel("right")}
             className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
           >
             <ArrowRight size={20} />
@@ -260,9 +338,19 @@ export default function PartenairesPage() {
           <div
             ref={carouselRef}
             className="flex overflow-x-auto scrollbar-hide space-x-8 py-8 px-16"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            onMouseEnter={() => carouselRef.current?.style.setProperty('animation-play-state', 'paused')}
-            onMouseLeave={() => carouselRef.current?.style.setProperty('animation-play-state', 'running')}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onMouseEnter={() =>
+              carouselRef.current?.style.setProperty(
+                "animation-play-state",
+                "paused"
+              )
+            }
+            onMouseLeave={() =>
+              carouselRef.current?.style.setProperty(
+                "animation-play-state",
+                "running"
+              )
+            }
           >
             {/* Duplicate items for infinite scroll effect */}
             {[...partnerLogos, ...partnerLogos].map((partner, index) => (
@@ -273,15 +361,19 @@ export default function PartenairesPage() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="flex-shrink-0 w-48 h-32 bg-white rounded-xl p-6 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 group cursor-pointer"
-                onClick={() => window.open(partner.website, '_blank')}
+                onClick={() => window.open(partner.website, "_blank")}
               >
                 {/* Placeholder for partner logo */}
                 <div className="w-full h-full bg-brand-green/10 rounded-lg flex flex-col items-center justify-center group-hover:bg-brand-green/20 transition-colors duration-300">
                   <div className="w-16 h-16 bg-brand-green/20 rounded-lg flex items-center justify-center mb-2 group-hover:bg-brand-green/30">
                     <Building2 size={24} className="text-brand-green" />
                   </div>
-                  <span className="text-xs text-brand-green font-medium text-center">{partner.name}</span>
-                  <span className="text-xs text-brand-gray mt-1">{partner.category}</span>
+                  <span className="text-xs text-brand-green font-medium text-center">
+                    {partner.name}
+                  </span>
+                  <span className="text-xs text-brand-gray mt-1">
+                    {partner.category}
+                  </span>
                 </div>
                 {/* TODO: Replace with actual image */}
                 {/* <Image 
@@ -308,7 +400,9 @@ export default function PartenairesPage() {
               className="bg-white rounded-xl p-4 shadow-lg border border-gray-100"
             >
               <div className="w-full h-20 bg-brand-green/10 rounded-lg flex items-center justify-center">
-                <span className="text-xs text-brand-green font-medium">{partner.name}</span>
+                <span className="text-xs text-brand-green font-medium">
+                  {partner.name}
+                </span>
               </div>
             </motion.div>
           ))}
@@ -371,16 +465,24 @@ export default function PartenairesPage() {
             Devenez Notre <span className="text-brand-green">Partenaire</span>
           </h2>
           <p className="text-lg text-brand-neutral mb-8 leading-relaxed">
-            Rejoignez notre réseau d'excellence et contribuez au développement de l'agronomie durable. 
-            Ensemble, construisons l'avenir de l'agriculture tunisienne.
+            Rejoignez notre réseau d'excellence et contribuez au développement
+            de l'agronomie durable. Ensemble, construisons l'avenir de
+            l'agriculture tunisienne.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button variant="primary" size="lg" className="group shadow-2xl">
               Devenir partenaire
-              <Handshake size={20} className="group-hover:scale-110 transition-transform" />
+              <Handshake
+                size={20}
+                className="group-hover:scale-110 transition-transform"
+              />
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm"
+            >
               Télécharger la brochure
               <ExternalLink size={20} />
             </Button>
@@ -388,12 +490,20 @@ export default function PartenairesPage() {
 
           {/* Contact Info */}
           <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-brand-neutral mb-4">Pour plus d'informations sur nos partenariats:</p>
+            <p className="text-brand-neutral mb-4">
+              Pour plus d'informations sur nos partenariats:
+            </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a href="mailto:contact1.inatje@gmail.com" className="text-brand-green hover:underline">
+              <a
+                href="mailto:contact1.inatje@gmail.com"
+                className="text-brand-green hover:underline"
+              >
                 contact1.inatje@gmail.com
               </a>
-              <a href="tel:+21699197400" className="text-brand-green hover:underline">
+              <a
+                href="tel:+21699197400"
+                className="text-brand-green hover:underline"
+              >
                 +216 99 197 400
               </a>
             </div>

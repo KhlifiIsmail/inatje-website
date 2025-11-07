@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Calendar, 
-  MapPin, 
-  Users, 
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  MapPin,
+  Users,
   Clock,
   ArrowRight,
   ExternalLink,
@@ -14,111 +14,128 @@ import {
   TrendingUp,
   Building,
   GraduationCap,
-  Briefcase
-} from 'lucide-react';
+  Briefcase,
+} from "lucide-react";
 // import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import { CTASection } from '@/components/sections/CTASection';
+import { Button } from "@/components/ui/Button";
+import { CTASection } from "@/components/sections/CTASection";
 
 const upcomingEvent = {
-  title: 'Forum d\'Emploi et de Stages 2025',
-  date: '10 Décembre 2025',
-  time: '09h00 - 18h30',
-  location: 'Institut National Agronomique de Tunisie',
-  address: '43 Avenue Charles Nicolle, 1082 Tunis',
-  description: 'Ce rendez-vous incontournable permet aux futurs ingénieurs agronomes et aux jeunes diplômés de rencontrer des entreprises prestigieuses, d\'explorer des opportunités de stages et d\'emplois, tout en renforçant leurs réseaux professionnels.',
-  fullDescription: 'Au-delà des simples échanges, le Forum offre également des panels, des sessions de formations et des ateliers sur des thématiques cruciales. L\'objectif est d\'améliorer les profils des étudiants agronomes pour un avenir meilleur de notre écosystème.',
-  canvaLink: '[PLACEHOLDER: Canva presentation link]',
+  title: "Forum d'Emploi et de Stages 2025",
+  date: "10 Décembre 2025",
+  time: "09h00 - 18h30",
+  location: "Institut National Agronomique de Tunisie",
+  address: "43 Avenue Charles Nicolle, 1082 Tunis",
+  description:
+    "Ce rendez-vous incontournable permet aux futurs ingénieurs agronomes et aux jeunes diplômés de rencontrer des entreprises prestigieuses, d'explorer des opportunités de stages et d'emplois, tout en renforçant leurs réseaux professionnels.",
+  fullDescription:
+    "Au-delà des simples échanges, le Forum offre également des panels, des sessions de formations et des ateliers sur des thématiques cruciales. L'objectif est d'améliorer les profils des étudiants agronomes pour un avenir meilleur de notre écosystème.",
+  canvaLink: "[PLACEHOLDER: Canva presentation link]",
   stats: [
-    { label: 'Entreprises Attendues', value: '50+', icon: Building },
-    { label: 'Participants Prévus', value: '500+', icon: Users },
-    { label: 'Opportunités d\'Emploi', value: '200+', icon: Briefcase },
-    { label: 'Heures de Networking', value: '9h', icon: Clock }
-  ]
+    { label: "Entreprises Attendues", value: "50+", icon: Building },
+    { label: "Participants Prévus", value: "500+", icon: Users },
+    { label: "Opportunités d'Emploi", value: "200+", icon: Briefcase },
+    { label: "Heures de Networking", value: "9h", icon: Clock },
+  ],
 };
 
 const eventHighlights = [
   {
-    title: 'Networking Professionnel',
-    description: 'Rencontres directes avec les recruteurs des meilleures entreprises du secteur',
+    title: "Networking Professionnel",
+    description:
+      "Rencontres directes avec les recruteurs des meilleures entreprises du secteur",
     icon: Users,
-    color: 'from-blue-500 to-cyan-600'
+    color: "from-blue-500 to-cyan-600",
   },
   {
-    title: 'Ateliers de Formation',
-    description: 'Sessions spécialisées pour améliorer vos compétences professionnelles',
+    title: "Ateliers de Formation",
+    description:
+      "Sessions spécialisées pour améliorer vos compétences professionnelles",
     icon: GraduationCap,
-    color: 'from-purple-500 to-indigo-600'
+    color: "from-purple-500 to-indigo-600",
   },
   {
-    title: 'Panels d\'Experts',
-    description: 'Conférences sur les tendances et l\'avenir de l\'agriculture durable',
+    title: "Panels d'Experts",
+    description:
+      "Conférences sur les tendances et l'avenir de l'agriculture durable",
     icon: Award,
-    color: 'from-emerald-500 to-green-600'
+    color: "from-emerald-500 to-green-600",
   },
   {
-    title: 'Opportunités Directes',
-    description: 'Accès exclusif aux offres de stages et d\'emplois',
+    title: "Opportunités Directes",
+    description: "Accès exclusif aux offres de stages et d'emplois",
     icon: TrendingUp,
-    color: 'from-orange-500 to-red-500'
-  }
+    color: "from-orange-500 to-red-500",
+  },
 ];
 
 const pastEvents = [
   {
-    year: '2024',
-    title: 'Forum d\'Emploi et de Stages 2024',
-    participants: '450+',
-    companies: '45',
-    successRate: '82%',
-    highlights: ['Premier forum post-COVID', 'Record de participation', 'Nouveau format hybride']
+    year: "2024",
+    title: "Forum d'Emploi et de Stages 2024",
+    participants: "450+",
+    companies: "45",
+    successRate: "82%",
+    highlights: [
+      "Premier forum post-COVID",
+      "Record de participation",
+      "Nouveau format hybride",
+    ],
   },
   {
-    year: '2023',
-    title: 'Forum d\'Emploi et de Stages 2023',
-    participants: '380+',
-    companies: '38',
-    successRate: '78%',
-    highlights: ['Focus agriculture durable', 'Ateliers innovation', 'Partenariats internationaux']
+    year: "2023",
+    title: "Forum d'Emploi et de Stages 2023",
+    participants: "380+",
+    companies: "38",
+    successRate: "78%",
+    highlights: [
+      "Focus agriculture durable",
+      "Ateliers innovation",
+      "Partenariats internationaux",
+    ],
   },
   {
-    year: '2022',
-    title: 'Forum d\'Emploi et de Stages 2022',
-    participants: '320+',
-    companies: '32',
-    successRate: '75%',
-    highlights: ['Première édition digitale', 'Sessions virtuelles', 'Innovation technologique']
-  }
+    year: "2022",
+    title: "Forum d'Emploi et de Stages 2022",
+    participants: "320+",
+    companies: "32",
+    successRate: "75%",
+    highlights: [
+      "Première édition digitale",
+      "Sessions virtuelles",
+      "Innovation technologique",
+    ],
+  },
 ];
 
 const eventTimeline = [
-  { time: '09h00', activity: 'Accueil des Participants', type: 'registration' },
-  { time: '09h30', activity: 'Cérémonie d\'Ouverture', type: 'ceremony' },
-  { time: '10h00', activity: 'Sessions de Networking', type: 'networking' },
-  { time: '12h00', activity: 'Pause Déjeuner & Networking', type: 'break' },
-  { time: '13h30', activity: 'Ateliers de Formation', type: 'workshop' },
-  { time: '15h30', activity: 'Entretiens de Recrutement', type: 'interviews' },
-  { time: '17h00', activity: 'Panel d\'Experts', type: 'conference' },
-  { time: '18h00', activity: 'Networking Final & Clôture', type: 'closing' }
+  { time: "09h00", activity: "Accueil des Participants", type: "registration" },
+  { time: "09h30", activity: "Cérémonie d'Ouverture", type: "ceremony" },
+  { time: "10h00", activity: "Sessions de Networking", type: "networking" },
+  { time: "12h00", activity: "Pause Déjeuner & Networking", type: "break" },
+  { time: "13h30", activity: "Ateliers de Formation", type: "workshop" },
+  { time: "15h30", activity: "Entretiens de Recrutement", type: "interviews" },
+  { time: "17h00", activity: "Panel d'Experts", type: "conference" },
+  { time: "18h00", activity: "Networking Final & Clôture", type: "closing" },
 ];
 
 const getTimelineColor = (type: string) => {
   const colors = {
-    registration: 'from-blue-500 to-cyan-600',
-    ceremony: 'from-brand-green to-emerald-600',
-    networking: 'from-purple-500 to-indigo-600',
-    break: 'from-gray-400 to-gray-600',
-    workshop: 'from-orange-500 to-red-500',
-    interviews: 'from-pink-500 to-rose-600',
-    conference: 'from-indigo-500 to-purple-600',
-    closing: 'from-brand-green to-blue-500'
+    registration: "from-blue-500 to-cyan-600",
+    ceremony: "from-brand-green to-emerald-600",
+    networking: "from-purple-500 to-indigo-600",
+    break: "from-gray-400 to-gray-600",
+    workshop: "from-orange-500 to-red-500",
+    interviews: "from-pink-500 to-rose-600",
+    conference: "from-indigo-500 to-purple-600",
+    closing: "from-brand-green to-blue-500",
   };
-  return colors[type as keyof typeof colors] || 'from-gray-400 to-gray-600';
+  return colors[type as keyof typeof colors] || "from-gray-400 to-gray-600";
 };
 
 export default function EvenementsPage() {
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen ">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-purple-900/20 overflow-hidden">
         {/* Animated Background */}
@@ -157,15 +174,21 @@ export default function EvenementsPage() {
               className="inline-flex items-center space-x-2 px-6 py-3 bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-full shadow-lg"
             >
               <Calendar size={20} className="text-purple-400" />
-              <span className="text-purple-400 font-semibold">Événements INAT JE</span>
+              <span className="text-purple-400 font-semibold">
+                Événements INAT JE
+              </span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight">
-              Nos <span className="bg-gradient-to-r from-brand-green to-purple-400 bg-clip-text text-transparent">Événements</span>
+              Nos{" "}
+              <span className="bg-gradient-to-r from-brand-green to-purple-400 bg-clip-text text-transparent">
+                Événements
+              </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-brand-neutral max-w-4xl mx-auto leading-relaxed">
-              Des rendez-vous incontournables pour votre développement professionnel
+              Des rendez-vous incontournables pour votre développement
+              professionnel
             </p>
           </motion.div>
         </div>
@@ -211,7 +234,9 @@ export default function EvenementsPage() {
               </div>
               <div className="absolute inset-0 bg-black/10"></div>
               <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                <span className="text-white text-sm font-medium">Événement Majeur</span>
+                <span className="text-white text-sm font-medium">
+                  Événement Majeur
+                </span>
               </div>
             </div>
 
@@ -235,15 +260,23 @@ export default function EvenementsPage() {
                   <div className="flex items-center space-x-3">
                     <Calendar size={20} className="text-brand-green" />
                     <div>
-                      <div className="font-semibold text-brand-black">{upcomingEvent.date}</div>
-                      <div className="text-sm text-brand-gray">{upcomingEvent.time}</div>
+                      <div className="font-semibold text-brand-black">
+                        {upcomingEvent.date}
+                      </div>
+                      <div className="text-sm text-brand-gray">
+                        {upcomingEvent.time}
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin size={20} className="text-brand-green" />
                     <div>
-                      <div className="font-semibold text-brand-black">{upcomingEvent.location}</div>
-                      <div className="text-sm text-brand-gray">{upcomingEvent.address}</div>
+                      <div className="font-semibold text-brand-black">
+                        {upcomingEvent.location}
+                      </div>
+                      <div className="text-sm text-brand-gray">
+                        {upcomingEvent.address}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -252,7 +285,10 @@ export default function EvenementsPage() {
                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
                   <Button variant="primary" size="lg" className="group">
                     S'inscrire maintenant
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight
+                      size={20}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
                   </Button>
                   <Button variant="outline" size="lg">
                     En savoir plus
@@ -279,7 +315,9 @@ export default function EvenementsPage() {
               <div className="w-16 h-16 mx-auto mb-4 bg-brand-green/10 rounded-xl flex items-center justify-center group-hover:bg-brand-green group-hover:scale-110 transition-all duration-300">
                 <stat.icon className="w-8 h-8 text-brand-green group-hover:text-white transition-colors duration-300" />
               </div>
-              <div className="text-3xl font-bold text-brand-green mb-1">{stat.value}</div>
+              <div className="text-3xl font-bold text-brand-green mb-1">
+                {stat.value}
+              </div>
               <div className="text-sm text-brand-gray">{stat.label}</div>
             </motion.div>
           ))}
@@ -361,19 +399,23 @@ export default function EvenementsPage() {
               className="flex items-center mb-8 last:mb-0 group"
             >
               <div className="flex-shrink-0 w-24 text-right mr-8">
-                <div className="text-lg font-bold text-brand-green">{item.time}</div>
+                <div className="text-lg font-bold text-brand-green">
+                  {item.time}
+                </div>
               </div>
-              
+
               <div className="flex-shrink-0 relative">
                 <motion.div
                   whileHover={{ scale: 1.3 }}
-                  className={`w-4 h-4 bg-gradient-to-r ${getTimelineColor(item.type)} rounded-full border-4 border-white shadow-lg z-10 relative`}
+                  className={`w-4 h-4 bg-gradient-to-r ${getTimelineColor(
+                    item.type
+                  )} rounded-full border-4 border-white shadow-lg z-10 relative`}
                 />
                 {index < eventTimeline.length - 1 && (
                   <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-brand-green/50 to-transparent"></div>
                 )}
               </div>
-              
+
               <div className="flex-1 ml-8">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
@@ -413,7 +455,9 @@ export default function EvenementsPage() {
           className="bg-brand-neutral/30 rounded-3xl p-16 border-2 border-dashed border-brand-green/30 mb-16"
         >
           <Users size={80} className="mx-auto mb-6 text-brand-green/50" />
-          <h3 className="text-2xl font-semibold mb-4 text-brand-black">Galerie Photo des Forums</h3>
+          <h3 className="text-2xl font-semibold mb-4 text-brand-black">
+            Galerie Photo des Forums
+          </h3>
           <p className="text-brand-gray mb-4">
             [PLACEHOLDER: Forum photos from Google Drive folders]
           </p>
@@ -422,7 +466,10 @@ export default function EvenementsPage() {
           </p>
           <div className="mt-8 grid grid-cols-3 md:grid-cols-6 gap-4 opacity-50">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="aspect-square bg-brand-green/10 rounded-lg flex items-center justify-center">
+              <div
+                key={i}
+                className="aspect-square bg-brand-green/10 rounded-lg flex items-center justify-center"
+              >
                 <span className="text-xs text-brand-green">Photo {i}</span>
               </div>
             ))}
@@ -442,33 +489,49 @@ export default function EvenementsPage() {
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 group"
             >
               <div className="text-center mb-6">
-                <div className="text-4xl font-bold text-brand-green mb-2">{event.year}</div>
+                <div className="text-4xl font-bold text-brand-green mb-2">
+                  {event.year}
+                </div>
                 <h3 className="text-xl font-semibold text-brand-black group-hover:text-brand-green transition-colors">
                   {event.title}
                 </h3>
               </div>
-              
+
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between items-center">
                   <span className="text-brand-gray">Participants:</span>
-                  <span className="font-semibold text-brand-black">{event.participants}</span>
+                  <span className="font-semibold text-brand-black">
+                    {event.participants}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-brand-gray">Entreprises:</span>
-                  <span className="font-semibold text-brand-black">{event.companies}</span>
+                  <span className="font-semibold text-brand-black">
+                    {event.companies}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-brand-gray">Taux de succès:</span>
-                  <span className="font-semibold text-brand-green">{event.successRate}</span>
+                  <span className="font-semibold text-brand-green">
+                    {event.successRate}
+                  </span>
                 </div>
               </div>
-              
+
               <div className="pt-4 border-t border-gray-100">
-                <h4 className="text-sm font-semibold text-brand-black mb-3">Points forts:</h4>
+                <h4 className="text-sm font-semibold text-brand-black mb-3">
+                  Points forts:
+                </h4>
                 <ul className="space-y-2">
                   {event.highlights.map((highlight, idx) => (
-                    <li key={idx} className="flex items-center space-x-2 text-sm text-brand-gray">
-                      <Star size={12} className="text-brand-green flex-shrink-0" />
+                    <li
+                      key={idx}
+                      className="flex items-center space-x-2 text-sm text-brand-gray"
+                    >
+                      <Star
+                        size={12}
+                        className="text-brand-green flex-shrink-0"
+                      />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -491,16 +554,22 @@ export default function EvenementsPage() {
             Documentation <span className="text-brand-green">Complète</span>
           </h2>
           <p className="text-lg text-brand-neutral mb-8">
-            Consultez notre présentation détaillée pour tous les détails de l'événement
+            Consultez notre présentation détaillée pour tous les détails de
+            l'événement
           </p>
-          
+
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
             <ExternalLink size={48} className="mx-auto mb-4 text-brand-green" />
-            <h3 className="text-xl font-semibold mb-4">Présentation Forum 2025</h3>
+            <h3 className="text-xl font-semibold mb-4">
+              Présentation Forum 2025
+            </h3>
             <p className="text-brand-neutral mb-6">{upcomingEvent.canvaLink}</p>
             <Button variant="primary" className="group">
               Voir la présentation complète
-              <ExternalLink size={18} className="group-hover:scale-110 transition-transform" />
+              <ExternalLink
+                size={18}
+                className="group-hover:scale-110 transition-transform"
+              />
             </Button>
           </div>
         </motion.div>

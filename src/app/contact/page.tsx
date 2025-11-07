@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
   Clock,
   Send,
   CheckCircle,
@@ -15,108 +15,132 @@ import {
   Linkedin,
   User,
   Building,
-  MessageSquare
-} from 'lucide-react';
+  MessageSquare,
+} from "lucide-react";
 // import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import { CTASection } from '@/components/sections/CTASection';
+import { Button } from "@/components/ui/Button";
+import { CTASection } from "@/components/sections/CTASection";
 
 const contactInfo = {
-  email: 'contact1.inatje@gmail.com',
-  phone: '+216 99 197 400',
-  address: 'Institut National Agronomique de Tunisie (INAT)',
-  fullAddress: '43 Avenue Charles Nicolle, 1082 Tunis, Tunisia',
-  hours: 'Lundi - Vendredi: 9h00 - 17h00',
-  responseTime: 'Nous répondons dans les 24-48 heures'
+  email: "contact1.inatje@gmail.com",
+  phone: "+216 99 197 400",
+  address: "Institut National Agronomique de Tunisie (INAT)",
+  fullAddress: "43 Avenue Charles Nicolle, 1082 Tunis, Tunisia",
+  hours: "Lundi - Vendredi: 9h00 - 17h00",
+  responseTime: "Nous répondons dans les 24-48 heures",
 };
 
 const socialLinks = [
-  { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-[#1877F2]', bg: 'hover:bg-[#1877F2]' },
-  { name: 'Instagram', icon: Instagram, href: '#', color: 'hover:text-[#E4405F]', bg: 'hover:bg-[#E4405F]' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-[#0A66C2]', bg: 'hover:bg-[#0A66C2]' },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "#",
+    color: "hover:text-[#1877F2]",
+    bg: "hover:bg-[#1877F2]",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "#",
+    color: "hover:text-[#E4405F]",
+    bg: "hover:bg-[#E4405F]",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "#",
+    color: "hover:text-[#0A66C2]",
+    bg: "hover:bg-[#0A66C2]",
+  },
 ];
 
 const contactReasons = [
-  { value: 'general', label: 'Demande générale' },
-  { value: 'project', label: 'Demande de projet' },
-  { value: 'partnership', label: 'Partenariat' },
-  { value: 'join', label: 'Rejoindre INAT JE' },
-  { value: 'forum', label: 'Forum d\'emploi' },
-  { value: 'other', label: 'Autre' }
+  { value: "general", label: "Demande générale" },
+  { value: "project", label: "Demande de projet" },
+  { value: "partnership", label: "Partenariat" },
+  { value: "join", label: "Rejoindre INAT JE" },
+  { value: "forum", label: "Forum d'emploi" },
+  { value: "other", label: "Autre" },
 ];
 
 const officeFeatures = [
   {
     icon: Mail,
-    title: 'Email',
-    description: 'Réponse garantie sous 24-48h',
+    title: "Email",
+    description: "Réponse garantie sous 24-48h",
     value: contactInfo.email,
-    action: `mailto:${contactInfo.email}`
+    action: `mailto:${contactInfo.email}`,
   },
   {
     icon: Phone,
-    title: 'Téléphone',
-    description: 'Disponible aux heures ouvrables',
+    title: "Téléphone",
+    description: "Disponible aux heures ouvrables",
     value: contactInfo.phone,
-    action: `tel:${contactInfo.phone.replace(/\s/g, '')}`
+    action: `tel:${contactInfo.phone.replace(/\s/g, "")}`,
   },
   {
     icon: MapPin,
-    title: 'Adresse',
-    description: 'Campus INAT, Tunis',
+    title: "Adresse",
+    description: "Campus INAT, Tunis",
     value: contactInfo.address,
-    action: 'https://maps.google.com/?q=INAT+Tunis'
+    action: "https://maps.google.com/?q=INAT+Tunis",
   },
   {
     icon: Clock,
-    title: 'Horaires',
-    description: 'Lundi au Vendredi',
-    value: '9h00 - 17h00',
-    action: null
-  }
+    title: "Horaires",
+    description: "Lundi au Vendredi",
+    value: "9h00 - 17h00",
+    action: null,
+  },
 ];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    subject: "",
+    message: "",
   });
-  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus('loading');
-    
+    setFormStatus("loading");
+
     // TODO: Implement actual form submission logic
     // This could be EmailJS, Formspree, or your own backend
     setTimeout(() => {
-      setFormStatus('success');
+      setFormStatus("success");
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        subject: "",
+        message: "",
       });
     }, 2000);
   };
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-emerald-900/20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-emerald-900/20 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <motion.div
@@ -153,18 +177,21 @@ export default function ContactPage() {
               className="inline-flex items-center space-x-2 px-6 py-3 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full shadow-lg"
             >
               <MessageSquare size={20} className="text-emerald-400" />
-              <span className="text-emerald-400 font-semibold">Nous Contacter</span>
+              <span className="text-emerald-400 font-semibold">
+                Nous Contacter
+              </span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight">
-              Parlons de Votre{' '}
+              Parlons de Votre{" "}
               <span className="bg-gradient-to-r from-brand-green to-emerald-400 bg-clip-text text-transparent">
                 Projet
               </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-brand-neutral max-w-4xl mx-auto leading-relaxed">
-              Notre équipe est là pour vous accompagner dans tous vos projets agronomiques
+              Notre équipe est là pour vous accompagner dans tous vos projets
+              agronomiques
             </p>
 
             <motion.div
@@ -177,24 +204,34 @@ export default function ContactPage() {
                 <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
                   <CheckCircle className="w-8 h-8 text-brand-green" />
                 </div>
-                <div className="text-lg font-semibold text-white mb-1">Réponse Rapide</div>
+                <div className="text-lg font-semibold text-white mb-1">
+                  Réponse Rapide
+                </div>
                 <div className="text-sm text-brand-neutral">Sous 24-48h</div>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
                   <User className="w-8 h-8 text-brand-green" />
                 </div>
-                <div className="text-lg font-semibold text-white mb-1">Experts Qualifiés</div>
-                <div className="text-sm text-brand-neutral">13 ans d'expérience</div>
+                <div className="text-lg font-semibold text-white mb-1">
+                  Experts Qualifiés
+                </div>
+                <div className="text-sm text-brand-neutral">
+                  13 ans d'expérience
+                </div>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
                   <Building className="w-8 h-8 text-brand-green" />
                 </div>
-                <div className="text-lg font-semibold text-white mb-1">Solutions Sur Mesure</div>
-                <div className="text-sm text-brand-neutral">Adaptées à vos besoins</div>
+                <div className="text-lg font-semibold text-white mb-1">
+                  Solutions Sur Mesure
+                </div>
+                <div className="text-sm text-brand-neutral">
+                  Adaptées à vos besoins
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -220,7 +257,10 @@ export default function ContactPage() {
                 {/* Name and Email Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-brand-darkgray mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-brand-darkgray mb-2"
+                    >
                       Nom complet *
                     </label>
                     <input
@@ -235,7 +275,10 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-brand-darkgray mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-brand-darkgray mb-2"
+                    >
                       Email *
                     </label>
                     <input
@@ -254,7 +297,10 @@ export default function ContactPage() {
                 {/* Phone and Company Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-brand-darkgray mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-brand-darkgray mb-2"
+                    >
                       Téléphone
                     </label>
                     <input
@@ -268,7 +314,10 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-brand-darkgray mb-2">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-medium text-brand-darkgray mb-2"
+                    >
                       Organisation/Entreprise
                     </label>
                     <input
@@ -285,7 +334,10 @@ export default function ContactPage() {
 
                 {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-brand-darkgray mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-brand-darkgray mb-2"
+                  >
                     Sujet *
                   </label>
                   <select
@@ -307,7 +359,10 @@ export default function ContactPage() {
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-brand-darkgray mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-brand-darkgray mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -331,14 +386,18 @@ export default function ContactPage() {
                     type="submit"
                     variant="primary"
                     size="lg"
-                    disabled={formStatus === 'loading'}
+                    disabled={formStatus === "loading"}
                     className="w-full group"
                   >
-                    {formStatus === 'loading' ? (
+                    {formStatus === "loading" ? (
                       <>
                         <motion.div
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
                         />
                         Envoi en cours...
@@ -346,14 +405,17 @@ export default function ContactPage() {
                     ) : (
                       <>
                         Envoyer le message
-                        <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                        <Send
+                          size={20}
+                          className="group-hover:translate-x-1 transition-transform"
+                        />
                       </>
                     )}
                   </Button>
                 </motion.div>
 
                 {/* Form Status Messages */}
-                {formStatus === 'success' && (
+                {formStatus === "success" && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -361,12 +423,13 @@ export default function ContactPage() {
                   >
                     <CheckCircle size={20} className="text-green-600" />
                     <p className="text-green-700 font-medium">
-                      Message envoyé avec succès ! Nous vous répondrons sous 24-48h.
+                      Message envoyé avec succès ! Nous vous répondrons sous
+                      24-48h.
                     </p>
                   </motion.div>
                 )}
 
-                {formStatus === 'error' && (
+                {formStatus === "error" && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -374,7 +437,8 @@ export default function ContactPage() {
                   >
                     <AlertCircle size={20} className="text-red-600" />
                     <p className="text-red-700 font-medium">
-                      Erreur lors de l'envoi. Veuillez réessayer ou nous contacter directement.
+                      Erreur lors de l'envoi. Veuillez réessayer ou nous
+                      contacter directement.
                     </p>
                   </motion.div>
                 )}
@@ -395,8 +459,12 @@ export default function ContactPage() {
               <div className="aspect-[4/3] bg-gradient-to-br from-brand-green to-emerald-600 flex items-center justify-center">
                 <div className="text-center text-white p-8">
                   <Building size={80} className="mx-auto mb-4 opacity-30" />
-                  <p className="text-lg opacity-80">[PLACEHOLDER: Contact Image]</p>
-                  <p className="text-sm opacity-60 mt-2">Provided photo on right side of contact section</p>
+                  <p className="text-lg opacity-80">
+                    [PLACEHOLDER: Contact Image]
+                  </p>
+                  <p className="text-sm opacity-60 mt-2">
+                    Provided photo on right side of contact section
+                  </p>
                 </div>
               </div>
               <div className="absolute inset-0 bg-black/20"></div>
@@ -413,7 +481,13 @@ export default function ContactPage() {
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ x: 10, scale: 1.02 }}
                   className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer"
-                  onClick={() => feature.action && window.open(feature.action, feature.action.startsWith('http') ? '_blank' : '_self')}
+                  onClick={() =>
+                    feature.action &&
+                    window.open(
+                      feature.action,
+                      feature.action.startsWith("http") ? "_blank" : "_self"
+                    )
+                  }
                 >
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center group-hover:bg-brand-green group-hover:scale-110 transition-all duration-300">
@@ -423,8 +497,12 @@ export default function ContactPage() {
                       <h3 className="text-lg font-semibold text-brand-black group-hover:text-brand-green transition-colors">
                         {feature.title}
                       </h3>
-                      <p className="text-brand-gray text-sm mb-1">{feature.description}</p>
-                      <p className="text-brand-black font-medium">{feature.value}</p>
+                      <p className="text-brand-gray text-sm mb-1">
+                        {feature.description}
+                      </p>
+                      <p className="text-brand-black font-medium">
+                        {feature.value}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -434,7 +512,8 @@ export default function ContactPage() {
             {/* Social Media Links */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <h3 className="text-xl font-semibold text-brand-black mb-6">
-                Suivez-nous sur les <span className="gradient-text">Réseaux Sociaux</span>
+                Suivez-nous sur les{" "}
+                <span className="gradient-text">Réseaux Sociaux</span>
               </h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
@@ -448,7 +527,10 @@ export default function ContactPage() {
                     className={`p-4 bg-gray-100 rounded-xl transition-all duration-300 ${social.bg} hover:text-white group`}
                     aria-label={social.name}
                   >
-                    <social.icon size={24} className="transition-colors duration-300" />
+                    <social.icon
+                      size={24}
+                      className="transition-colors duration-300"
+                    />
                   </motion.a>
                 ))}
               </div>
@@ -462,7 +544,9 @@ export default function ContactPage() {
               <div className="flex items-center space-x-3">
                 <Clock size={24} className="text-brand-green" />
                 <div>
-                  <h3 className="font-semibold text-brand-black">{contactInfo.responseTime}</h3>
+                  <h3 className="font-semibold text-brand-black">
+                    {contactInfo.responseTime}
+                  </h3>
                   <p className="text-sm text-brand-gray">
                     Notre équipe s'engage à vous répondre rapidement
                   </p>
@@ -500,9 +584,13 @@ export default function ContactPage() {
             >
               <div className="text-center text-gray-600">
                 <MapPin size={64} className="mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Carte Google Maps</h3>
+                <h3 className="text-xl font-semibold mb-2">
+                  Carte Google Maps
+                </h3>
                 <p className="text-sm">Intégration de la carte Google Maps</p>
-                <p className="text-xs mt-2 text-brand-green">INAT Campus Location</p>
+                <p className="text-xs mt-2 text-brand-green">
+                  INAT Campus Location
+                </p>
               </div>
             </motion.div>
           </div>
@@ -522,15 +610,23 @@ export default function ContactPage() {
                 <div className="flex items-start space-x-3">
                   <MapPin size={20} className="text-brand-green mt-1" />
                   <div>
-                    <p className="font-medium text-brand-black">{contactInfo.address}</p>
-                    <p className="text-sm text-brand-gray">{contactInfo.fullAddress}</p>
+                    <p className="font-medium text-brand-black">
+                      {contactInfo.address}
+                    </p>
+                    <p className="text-sm text-brand-gray">
+                      {contactInfo.fullAddress}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Clock size={20} className="text-brand-green mt-1" />
                   <div>
-                    <p className="font-medium text-brand-black">Horaires d'ouverture</p>
-                    <p className="text-sm text-brand-gray">{contactInfo.hours}</p>
+                    <p className="font-medium text-brand-black">
+                      Horaires d'ouverture
+                    </p>
+                    <p className="text-sm text-brand-gray">
+                      {contactInfo.hours}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -562,7 +658,10 @@ export default function ContactPage() {
             >
               <Button variant="outline" size="lg" className="w-full group">
                 Obtenir l'itinéraire
-                <MapPin size={20} className="group-hover:scale-110 transition-transform" />
+                <MapPin
+                  size={20}
+                  className="group-hover:scale-110 transition-transform"
+                />
               </Button>
             </motion.div>
           </div>
