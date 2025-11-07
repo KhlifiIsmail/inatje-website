@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { ArrowRight, Leaf, Mouse } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import logo from "../../../public/images/simpleLogo.png";
 
 export function HeroSection() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -66,9 +67,19 @@ export function HeroSection() {
                 transition={{ duration: 0.6 }}
                 className="mb-8"
               >
-                <div className="w-20 h-20 bg-brand-green rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-3xl">IJ</span>
-                </div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center justify-center mx-auto mb-4"
+                >
+                  <Image
+                    src={logo}
+                    alt="INAT Junior Entreprise Logo"
+                    width={80}
+                    height={80}
+                    className="object-contain"
+                    priority
+                  />
+                </motion.div>
                 <h2 className="text-2xl font-heading font-bold text-white mb-2">
                   INAT{" "}
                   <span className="font-light text-brand-neutral">
@@ -251,7 +262,7 @@ export function HeroSection() {
                     scale: [1, 1.05, 1],
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="text-white group-hover:text-brand-green transition-colors duration-300 flex items-center justify-center "
+                  className="text-white group-hover:text-brand-green transition-colors duration-300 flex items-center justify-center"
                 >
                   <Mouse size={28} className="drop-shadow-lg" />
                 </motion.div>
