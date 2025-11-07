@@ -268,7 +268,7 @@ export function HeroSection() {
                   <motion.div
                     animate={{ scaleX: [0, 1, 0] }}
                     transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                    className="h-px bg-brand-green mt-0.5 origin-center w-8"
+                    className="h-px bg-brand-green mt-0.5 origin-center w-8 ml-1"
                   />
                 </motion.div>
               </motion.div>
