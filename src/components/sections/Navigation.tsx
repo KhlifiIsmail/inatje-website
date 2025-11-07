@@ -30,28 +30,41 @@ export function Navigation() {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 1 }}
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg py-4'
-          : 'bg-transparent py-6'
+          ? 'bg-white/95 backdrop-blur-md shadow-xl py-4 border-b border-brand-green/10'
+          : 'bg-black/20 backdrop-blur-md py-6 border-b border-white/10'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-brand-green rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <motion.div 
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              className={cn(
+                "w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg",
+                isScrolled ? "shadow-brand-green/20" : "shadow-black/30"
+              )}
+            >
               <span className="text-white font-bold text-xl">IJ</span>
-            </div>
+            </motion.div>
             <div className="hidden sm:block">
-              <span className="text-xl font-heading font-bold text-brand-black">
+              <span className={cn(
+                "text-xl font-heading font-bold transition-colors duration-300",
+                isScrolled ? "text-brand-black" : "text-white"
+              )}>
                 INAT{' '}
               </span>
-              <span className="text-xl font-heading font-light text-brand-gray">
+              <span className={cn(
+                "text-xl font-heading font-light transition-colors duration-300",
+                isScrolled ? "text-brand-gray" : "text-brand-neutral"
+              )}>
                 Junior Entreprise
               </span>
             </div>
@@ -63,22 +76,58 @@ export function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-4 py-2 text-sm font-medium text-brand-darkgray hover:text-brand-green transition-colors duration-300 relative group"
+                className={cn(
+                  "px-4 py-2.5 text-sm font-medium transition-all duration-300 relative group rounded-lg",
+                  isScrolled 
+                    ? "text-brand-darkgray hover:text-brand-green hover:bg-brand-green/5" 
+                    : "text-white/90 hover:text-brand-green hover:bg-white/10"
+                )}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-green group-hover:w-full transition-all duration-300" />
+                <span className={cn(
+                  "absolute bottom-1 left-4 right-4 h-0.5 bg-brand-green scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full"
+                )} />
               </Link>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-brand-neutral transition-colors"
+            className={cn(
+              "lg:hidden p-3 rounded-xl transition-all duration-300 backdrop-blur-sm border",
+              isScrolled 
+                ? "hover:bg-brand-green/5 border-brand-green/20 text-brand-darkgray" 
+                : "hover:bg-white/10 border-white/20 text-white"
+            )}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <AnimatePresence mode="wait">
+              {isMobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={24} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={24} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
 
@@ -90,20 +139,30 @@ export function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t border-brand-neutral/20 overflow-hidden"
+            className={cn(
+              "lg:hidden border-t overflow-hidden backdrop-blur-md",
+              isScrolled 
+                ? "bg-white/95 border-brand-green/10" 
+                : "bg-black/30 border-white/10"
+            )}
           >
             <div className="px-4 py-6 space-y-2">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ x: -20, opacity: 0 }}
+                  initial={{ x: -30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-base font-medium text-brand-darkgray hover:bg-brand-neutral hover:text-brand-green rounded-lg transition-all duration-300"
+                    className={cn(
+                      "block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 border border-transparent",
+                      isScrolled 
+                        ? "text-brand-darkgray hover:bg-brand-green/5 hover:text-brand-green hover:border-brand-green/20" 
+                        : "text-white hover:bg-white/10 hover:text-brand-green hover:border-white/20"
+                    )}
                   >
                     {item.name}
                   </Link>
