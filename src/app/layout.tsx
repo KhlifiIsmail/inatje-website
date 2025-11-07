@@ -17,13 +17,17 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "INAT Junior Entreprise | Innovation Agronomique et Développement Durable",
-  description: "Leader de son écosystème — Une organisation étudiante engagée pour l'innovation, le développement durable et l'excellence professionnelle.",
-  keywords: "junior entreprise tunisie, ingénierie agronomique, hydroponie tunisie, études agricoles, INAT",
+  title:
+    "INAT Junior Entreprise | Innovation Agronomique et Développement Durable",
+  description:
+    "Leader de son écosystème — Une organisation étudiante engagée pour l'innovation, le développement durable et l'excellence professionnelle.",
+  keywords:
+    "junior entreprise tunisie, ingénierie agronomique, hydroponie tunisie, études agricoles, INAT",
   authors: [{ name: "INAT Junior Entreprise" }],
   openGraph: {
     title: "INAT Junior Entreprise",
-    description: "Leader de son écosystème — Innovation, développement durable et excellence professionnelle.",
+    description:
+      "Leader de son écosystème — Innovation, développement durable et excellence professionnelle.",
     type: "website",
     locale: "fr_FR",
   },
