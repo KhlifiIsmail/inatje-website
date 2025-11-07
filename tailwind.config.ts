@@ -13,13 +13,13 @@ const config: Config = {
           black: "#000000",
           darkgray: "#1a1a1a",
           gray: "#333333",
-          green: "#2d5016",
-          lightgreen: "#4a7c2e",
+          green: "#daa520",
+          lightgreen: "#e6b800",
           neutral: "#f5f5f5",
           white: "#ffffff",
         },
         accent: {
-          gold: "#d4af37",
+          gold: "#daa520",
           emerald: "#50c878",
         },
       },
@@ -65,8 +65,8 @@ const config: Config = {
           '50%': { transform: 'translateY(-10px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px rgba(45, 80, 22, 0.5)' },
-          '100%': { boxShadow: '0 0 20px rgba(45, 80, 22, 0.8)' },
+          '0%': { boxShadow: '0 0 5px rgba(218, 165, 32, 0.5)' },
+          '100%': { boxShadow: '0 0 20px rgba(218, 165, 32, 0.8)' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-1000px 0' },

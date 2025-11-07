@@ -10,7 +10,7 @@ import Image from "next/image";
 export function HeroSection() {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Image - TODO: Replace with actual hero image from public/images/hero/hero-bg.jpg */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-black/90 via-brand-black/70 to-brand-black/50 z-10" />
         <Image

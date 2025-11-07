@@ -31,21 +31,21 @@ const stats = [
     label: 'Projets Réalisés',
     value: 150,
     suffix: '+',
-    color: '#2d5016',
+    color: '#daa520',
   },
   {
     icon: Calendar,
     label: 'Années d\'Expérience',
     value: 13,
     suffix: '',
-    color: '#2d5016',
+    color: '#daa520',
   },
   {
     icon: Users,
     label: 'Membres Actifs',
     value: 45,
     suffix: '+',
-    color: '#2d5016',
+    color: '#daa520',
   },
 ];
 

@@ -44,7 +44,6 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            {/* TODO: Import actual logo from public/images/logo.png */}
             <div className="w-12 h-12 bg-brand-green rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <span className="text-white font-bold text-xl">IJ</span>
             </div>
