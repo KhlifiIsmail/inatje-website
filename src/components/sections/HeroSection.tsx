@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight, Leaf } from "lucide-react";
+import { ArrowRight, Leaf, Mouse } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export function HeroSection() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   useEffect(() => {
     // Preload the image
@@ -26,6 +27,25 @@ export function HeroSection() {
       setShowLoader(false);
     };
   }, []);
+
+  useEffect(() => {
+    if (imageLoaded) {
+      // Show scroll indicator after 3 seconds
+      const showTimer = setTimeout(() => {
+        setShowScrollIndicator(true);
+      }, 3000);
+
+      // Hide scroll indicator after 4 seconds (total 7 seconds from load)
+      const hideTimer = setTimeout(() => {
+        setShowScrollIndicator(false);
+      }, 7000);
+
+      return () => {
+        clearTimeout(showTimer);
+        clearTimeout(hideTimer);
+      };
+    }
+  }, [imageLoaded]);
 
   return (
     <>
@@ -50,10 +70,13 @@ export function HeroSection() {
                   <span className="text-white font-bold text-3xl">IJ</span>
                 </div>
                 <h2 className="text-2xl font-heading font-bold text-white mb-2">
-                  INAT <span className="font-light text-brand-neutral">Junior Entreprise</span>
+                  INAT{" "}
+                  <span className="font-light text-brand-neutral">
+                    Junior Entreprise
+                  </span>
                 </h2>
               </motion.div>
-              
+
               {/* Loading Animation */}
               <motion.div
                 initial={{ opacity: 0 }}
@@ -95,8 +118,8 @@ export function HeroSection() {
         >
           {/* Enhanced Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black/85 via-brand-black/60 to-brand-black/75 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-black/40 z-10" />
-          
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-black/70 z-10" />
+
           <Image
             src="/images/team/team-inat.jpg"
             alt="INAT JE Team"
@@ -123,7 +146,9 @@ export function HeroSection() {
               className="inline-flex items-center space-x-2 px-4 py-2 bg-brand-green/15 backdrop-blur-sm border border-brand-green/30 rounded-full shadow-lg"
             >
               <Leaf size={16} className="text-brand-green" />
-              <span className="text-sm font-medium text-white">Depuis 2012</span>
+              <span className="text-sm font-medium text-white">
+                Depuis 2012
+              </span>
             </motion.div>
 
             {/* Main Heading */}
@@ -147,7 +172,9 @@ export function HeroSection() {
               className="text-lg md:text-xl lg:text-2xl text-brand-neutral max-w-5xl mx-auto leading-relaxed"
             >
               Leader de son écosystème — Une organisation étudiante engagée pour{" "}
-              <span className="text-brand-green font-semibold">l'innovation</span>
+              <span className="text-brand-green font-semibold">
+                l'innovation
+              </span>
               ,{" "}
               <span className="text-brand-green font-semibold">
                 le développement durable
@@ -167,7 +194,11 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
             >
               <Link href="/services">
-                <Button variant="primary" size="lg" className="group shadow-2xl">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group shadow-2xl"
+                >
                   Découvrir nos services
                   <ArrowRight
                     size={20}
@@ -186,31 +217,64 @@ export function HeroSection() {
               </Link>
             </motion.div>
           </motion.div>
+        </div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={imageLoaded ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 2 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          >
+        {/* Auto-disappearing Mouse Scroll Indicator */}
+        <AnimatePresence>
+          {showScrollIndicator && (
             <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-2 backdrop-blur-sm"
+              initial={{ opacity: 0, y: 30, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 30, scale: 0.8 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="fixed bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group z-30"
+              onClick={() =>
+                window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
+              }
             >
+              {/* Perfectly centered blurred background */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-black/40 backdrop-blur-md rounded-full border border-white/10" />
+
               <motion.div
-                animate={{ y: [0, 12, 0] }}
+                animate={{ y: [0, -8, 0] }}
                 transition={{
-                  duration: 1.5,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="w-1.5 h-1.5 bg-white rounded-full"
-              />
+                className="relative flex flex-col items-center justify-center space-y-2 p-6"
+              >
+                {/* Actual Mouse Icon - Perfectly Centered */}
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="text-white group-hover:text-brand-green transition-colors duration-300 flex items-center justify-center "
+                >
+                  <Mouse size={28} className="drop-shadow-lg" />
+                </motion.div>
+
+                {/* Text - Perfectly Centered */}
+                <motion.div
+                  animate={{ opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="text-center"
+                >
+                  <p className="text-white/80 text-[10px] font-medium tracking-wider group-hover:text-brand-green transition-colors duration-300">
+                    SCROLL
+                  </p>
+                  <motion.div
+                    animate={{ scaleX: [0, 1, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+                    className="h-px bg-brand-green mt-0.5 origin-center w-8"
+                  />
+                </motion.div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </div>
+          )}
+        </AnimatePresence>
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-10 pointer-events-none">
