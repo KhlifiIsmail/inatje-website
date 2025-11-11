@@ -1,29 +1,33 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Target, Lightbulb, Users, TrendingUp } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Target, Lightbulb, Users, TrendingUp } from "lucide-react";
 
 const features = [
   {
     icon: Target,
-    title: 'Notre Mission',
-    description: 'Créée en 2012 au sein de l\'Institut National Agronomique de Tunisie (INAT), INAT Junior Entreprise est une organisation étudiante à but non lucratif opérant sous l\'égide de la Confédération Tunisienne des Junior-Entreprises (JET).',
+    title: "Notre Mission",
+    description:
+      "Créée en 2012 au sein de l'Institut National Agronomique de Tunisie (INAT), INAT Junior Entreprise est une organisation étudiante à but non lucratif opérant sous l'égide de la Confédération Tunisienne des Junior-Entreprises (JET).",
   },
   {
     icon: Lightbulb,
-    title: 'Notre Rôle',
-    description: 'Acteur majeur de l\'innovation étudiante en ingénierie agronomique, nous intervenons dans trois domaines clés : la formation, l\'organisation d\'événements et la réalisation de projets d\'étude et de conseil.',
+    title: "Notre Rôle",
+    description:
+      "Acteur majeur de l'innovation étudiante en ingénierie agronomique, nous intervenons dans trois domaines clés : la formation, l'organisation d'événements et la réalisation de projets d'étude et de conseil.",
   },
   {
     icon: Users,
-    title: 'Nos Services',
-    description: 'Nos services englobent un large éventail de missions : analyses de marché, évaluations d\'impact environnemental, ainsi que études techniques et économiques, menées selon des méthodologies scientifiques rigoureuses et adaptées aux besoins de nos clients.',
+    title: "Nos Services",
+    description:
+      "INAT Junior Entreprise offre des solutions innovantes pour une agriculture durable : cultures hors sol, systèmes d’irrigation intelligents, composteurs écologiques et études sur mesure pour accompagner les entreprises et agriculteurs dans l’optimisation de leurs projets.",
   },
   {
     icon: TrendingUp,
-    title: 'Notre Force',
-    description: 'Forte de son ancrage académique et de son réseau professionnel, INAT Junior Entreprise allie expertise théorique et application pratique pour accompagner ses clients dans la concrétisation de leurs projets.',
+    title: "Notre Force",
+    description:
+      "Forte de son ancrage académique et de son réseau professionnel, INAT Junior Entreprise allie expertise théorique et application pratique pour accompagner ses clients dans la concrétisation de leurs projets.",
   },
 ];
 
@@ -38,10 +42,8 @@ export function AboutSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-h2 font-bold mb-4">
-            Plus qu'une Junior Entreprise,{' '}
-            <span className="gradient-text">
-              une aventure collective
-            </span>
+            Plus qu'une Junior Entreprise,{" "}
+            <span className="gradient-text">une aventure collective</span>
           </h2>
           <p className="text-lg text-brand-gray max-w-3xl mx-auto">
             Vers l'impact, l'apprentissage et l'innovation

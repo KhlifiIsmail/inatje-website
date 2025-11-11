@@ -12,31 +12,61 @@ export function HeroSection() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const [typingComplete, setTypingComplete] = useState(false);
+
+  const arabicText = "فلاّحة ونص.";
 
   useEffect(() => {
+    // Load Google Fonts for Arabic
+    const link = document.createElement("link");
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
     // Preload the image
     const img = new window.Image();
     img.src = "/images/team/team-inat.jpg";
     img.onload = () => {
       setImageLoaded(true);
-      // Keep loader for a bit longer for smooth transition
-      setTimeout(() => setShowLoader(false), 800);
     };
     img.onerror = () => {
-      // Fallback if image fails to load
       setImageLoaded(true);
-      setShowLoader(false);
     };
   }, []);
 
   useEffect(() => {
-    if (imageLoaded) {
-      // Show scroll indicator after 3 seconds
+    if (showLoader) {
+      // Typewriter effect
+      let currentIndex = 0;
+      const typingInterval = setInterval(() => {
+        if (currentIndex < arabicText.length) {
+          setDisplayedText(arabicText.slice(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+          setTypingComplete(true);
+          // Hide cursor after typing is complete
+          setTimeout(() => {
+            setShowCursor(false);
+            // Wait additional time then hide loader
+            setTimeout(() => setShowLoader(false), 1000);
+          }, 800);
+        }
+      }, 200);
+
+      return () => clearInterval(typingInterval);
+    }
+  }, [showLoader]);
+
+  useEffect(() => {
+    if (!showLoader && imageLoaded) {
       const showTimer = setTimeout(() => {
         setShowScrollIndicator(true);
       }, 3000);
 
-      // Hide scroll indicator after 4 seconds (total 7 seconds from load)
       const hideTimer = setTimeout(() => {
         setShowScrollIndicator(false);
       }, 7000);
@@ -46,7 +76,7 @@ export function HeroSection() {
         clearTimeout(hideTimer);
       };
     }
-  }, [imageLoaded]);
+  }, [showLoader, imageLoaded]);
 
   return (
     <>
@@ -80,7 +110,7 @@ export function HeroSection() {
                     priority
                   />
                 </motion.div>
-                <h2 className="text-2xl font-heading font-bold text-white mb-2">
+                <h2 className="text-2xl font-heading font-bold text-white mb-10">
                   INAT{" "}
                   <span className="font-light text-brand-neutral">
                     Junior Entreprise
@@ -88,29 +118,69 @@ export function HeroSection() {
                 </h2>
               </motion.div>
 
-              {/* Loading Animation */}
+              {/* Typewriter Animation */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="flex items-center justify-center space-x-2"
+                className="flex items-center justify-center"
               >
-                <div className="flex space-x-1">
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 1, 0.3],
-                      }}
-                      transition={{
-                        duration: 1.2,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                      }}
-                      className="w-3 h-3 bg-brand-green rounded-full"
-                    />
-                  ))}
+                <div className="relative">
+                  <div
+                    className="text-6xl font-bold min-h-[100px] flex items-center justify-center"
+                    style={{
+                      fontFamily: '"Scheherazade New", "Amiri", serif',
+                      direction: "rtl",
+                      textAlign: "center",
+                      fontWeight: "700",
+                      color: "#DAA520",
+                      textShadow:
+                        "0 0 40px rgba(218, 165, 32, 0.8), 0 0 20px rgba(218, 165, 32, 0.6)",
+                      letterSpacing: "4px",
+                      // filter: 'drop-shadow(0 0 20px rgba(218, 165, 32, 0.7))'
+                    }}
+                  >
+                    {displayedText}
+                    {showCursor && (
+                      <motion.span
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ duration: 0.8, repeat: Infinity }}
+                        style={{ color: "#DAA520" }}
+                        className="ml-2"
+                      >
+                        |
+                      </motion.span>
+                    )}
+                  </div>
+
+                  {/* Enhanced golden glow effect */}
+                  <motion.div
+                    animate={{
+                      opacity: [0.3, 0.6, 0.3],
+                      scale: [0.9, 1.3, 0.9],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400 to-transparent blur-3xl -z-10"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse, rgba(218, 165, 32, 0.4) 0%, transparent 70%)",
+                      filter: "blur(30px)",
+                    }}
+                  />
+
+                  {/* Additional golden glow layers */}
+                  <div
+                    className="absolute inset-0 -z-10"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse, rgba(218, 165, 32, 0.2) 0%, transparent 60%)",
+                      filter: "blur(50px)",
+                    }}
+                  />
                 </div>
               </motion.div>
             </div>
@@ -123,7 +193,7 @@ export function HeroSection() {
         {/* Background Image with Animation */}
         <motion.div
           initial={{ scale: 1.1, opacity: 0 }}
-          animate={imageLoaded ? { scale: 1, opacity: 1 } : {}}
+          animate={!showLoader && imageLoaded ? { scale: 1, opacity: 1 } : {}}
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
@@ -145,14 +215,16 @@ export function HeroSection() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
-            animate={imageLoaded ? { opacity: 1, y: 0 } : {}}
+            animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="space-y-8"
           >
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={imageLoaded ? { opacity: 1, scale: 1 } : {}}
+              animate={
+                !showLoader && imageLoaded ? { opacity: 1, scale: 1 } : {}
+              }
               transition={{ duration: 0.6, delay: 0.8 }}
               className="inline-flex items-center space-x-2 px-4 py-2 bg-brand-green/15 backdrop-blur-sm border border-brand-green/30 rounded-full shadow-lg"
             >
@@ -165,7 +237,7 @@ export function HeroSection() {
             {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
-              animate={imageLoaded ? { opacity: 1, y: 0 } : {}}
+              animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight"
             >
@@ -178,7 +250,7 @@ export function HeroSection() {
             {/* Tagline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={imageLoaded ? { opacity: 1, y: 0 } : {}}
+              animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 1.2 }}
               className="text-lg md:text-xl lg:text-2xl text-brand-neutral max-w-5xl mx-auto leading-relaxed"
             >
@@ -200,7 +272,7 @@ export function HeroSection() {
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={imageLoaded ? { opacity: 1, y: 0 } : {}}
+              animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 1.4 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
             >
@@ -291,7 +363,7 @@ export function HeroSection() {
         <div className="absolute inset-0 z-10 pointer-events-none">
           <motion.div
             initial={{ opacity: 0 }}
-            animate={imageLoaded ? { opacity: 1 } : {}}
+            animate={!showLoader && imageLoaded ? { opacity: 1 } : {}}
             transition={{ duration: 2, delay: 1.5 }}
           >
             <motion.div

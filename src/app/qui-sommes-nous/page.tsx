@@ -37,7 +37,7 @@ const aboutFeatures = [
     icon: Users,
     title: "Nos Services",
     description:
-      "Nos services englobent un large éventail de missions : analyses de marché, évaluations d'impact environnemental, ainsi que études techniques et économiques, menées selon des méthodologies scientifiques rigoureuses et adaptées aux besoins de nos clients.",
+      "INAT Junior Entreprise offre des solutions innovantes pour une agriculture durable : cultures hors sol, systèmes d’irrigation intelligents, composteurs écologiques et études sur mesure pour accompagner les entreprises et agriculteurs dans l’optimisation de leurs projets.",
     gradient: "from-emerald-500/20 to-teal-500/20",
   },
   {

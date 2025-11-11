@@ -1,51 +1,58 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Briefcase, Calendar, Users } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Briefcase,
+  Calendar,
+  Users,
+} from "lucide-react";
 
 const stats = [
   {
     icon: Facebook,
-    label: 'Facebook',
+    label: "Facebook",
     value: 5200,
-    suffix: '+',
-    color: '#1877F2',
+    suffix: "+",
+    color: "#1877F2",
   },
   {
     icon: Instagram,
-    label: 'Instagram',
+    label: "Instagram",
     value: 3800,
-    suffix: '+',
-    color: '#E4405F',
+    suffix: "+",
+    color: "#E4405F",
   },
   {
     icon: Linkedin,
-    label: 'LinkedIn',
+    label: "LinkedIn",
     value: 2400,
-    suffix: '+',
-    color: '#0A66C2',
+    suffix: "+",
+    color: "#0A66C2",
   },
   {
     icon: Briefcase,
-    label: 'Projets Réalisés',
+    label: "Projets Réalisés",
     value: 150,
-    suffix: '+',
-    color: '#daa520',
+    suffix: "+",
+    color: "#daa520",
   },
   {
     icon: Calendar,
-    label: 'Années d\'Expérience',
+    label: "Années d'Expérience",
     value: 13,
-    suffix: '',
-    color: '#daa520',
+    suffix: "",
+    color: "#daa520",
   },
   {
     icon: Users,
-    label: 'Membres Actifs',
-    value: 45,
-    suffix: '+',
-    color: '#daa520',
+    label: "Membres Actifs",
+    value: 60,
+    suffix: "+",
+    color: "#daa520",
   },
 ];
 
@@ -94,7 +101,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
   return (
     <span ref={countRef}>
-      {count.toLocaleString('fr-FR')}
+      {count.toLocaleString("fr-FR")}
       {suffix}
     </span>
   );
@@ -111,8 +118,7 @@ export function StatsSection() {
         className="text-center mb-16"
       >
         <h2 className="text-h2 font-bold mb-4">
-          Notre Impact en{' '}
-          <span className="text-brand-green">Chiffres</span>
+          Notre Impact en <span className="text-brand-green">Chiffres</span>
         </h2>
         <p className="text-lg text-brand-neutral max-w-2xl mx-auto">
           Des résultats concrets qui témoignent de notre engagement
