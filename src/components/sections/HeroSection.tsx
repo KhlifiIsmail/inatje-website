@@ -113,8 +113,8 @@ export function HeroSection() {
                   <Image
                     src={logo}
                     alt="INAT Junior Entreprise Logo"
-                    width={80}
-                    height={80}
+                    width={200}
+                    height={200}
                     className="object-contain"
                     priority
                   />
