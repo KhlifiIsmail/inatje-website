@@ -12,7 +12,7 @@ import {
   Calendar,
   CheckCircle,
 } from "lucide-react";
-// import Image from 'next/image';
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { CTASection } from "@/components/sections/CTASection";
@@ -362,30 +362,124 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section Placeholder */}
-      <section className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-h2 font-bold mb-4">
-            Notre <span className="gradient-text">Équipe</span>
-          </h2>
-          <p className="text-lg text-brand-gray max-w-2xl mx-auto mb-8">
-            Les talents qui font la différence chaque jour
-          </p>
-          <div className="bg-brand-neutral/20 rounded-xl p-8 border-2 border-dashed border-brand-green/30">
-            <Users size={64} className="mx-auto mb-4 text-brand-green/50" />
-            <p className="text-brand-gray">
-              [PLACEHOLDER: Team photos and bios will be added here]
+      {/* Premium Team Section */}
+      <section className="section-container bg-brand-darkgray text-white relative overflow-hidden">
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{ rotate: [0, -360] }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/4 left-1/4 w-80 h-80 bg-brand-green/10 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{ rotate: [360, 0] }}
+            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+          />
+        </div>
+
+        <div className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-h2 font-bold mb-4">
+              Notre <span className="text-brand-green">Équipe</span>
+            </h2>
+            <p className="text-lg text-brand-neutral max-w-2xl mx-auto mb-12">
+              Les talents qui font la différence chaque jour
             </p>
-            <p className="text-sm text-brand-green mt-2">
-              Waiting for team content from your team...
-            </p>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="relative group">
+              {/* Glassmorphism container */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-2 border border-white/20 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+                <div className="relative overflow-hidden rounded-2xl">
+                  {/* Image with overlay gradient */}
+                  <div className="relative">
+                    <Image
+                      src="/images/team/team-inat.jpg"
+                      alt="INAT Junior Entreprise - Notre Équipe"
+                      width={1200}
+                      height={600}
+                      quality={100}
+                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    
+                    {/* Premium overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent" />
+                    
+                    {/* Floating stats overlay */}
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <div className="grid grid-cols-3 gap-4">
+                        {[
+                          { number: "50+", label: "Membres Actifs" },
+                          { number: "13", label: "Années d'expérience" },
+                          { number: "100+", label: "Projets réalisés" }
+                        ].map((stat, index) => (
+                          <motion.div
+                            key={stat.label}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.8 + index * 0.1 }}
+                            className="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-center border border-white/30"
+                          >
+                            <div className="text-2xl font-bold text-white mb-1">
+                              {stat.number}
+                            </div>
+                            <div className="text-sm text-white/80">
+                              {stat.label}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-brand-green rounded-full opacity-60" />
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500 rounded-full opacity-40" />
+            </div>
+
+            {/* Team description */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1 }}
+              className="mt-12 text-center"
+            >
+              <p className="text-brand-neutral text-lg leading-relaxed max-w-4xl mx-auto mb-8">
+                Une équipe passionnée d'étudiants ingénieurs agronomes, unie par la même vision : 
+                révolutionner l'agriculture tunisienne à travers l'innovation et l'excellence académique.
+              </p>
+              <Link href="/contact">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="group shadow-2xl"
+                >
+                  Rejoignez notre équipe
+                  <Users
+                    size={20}
+                    className="group-hover:scale-110 transition-transform"
+                  />
+                </Button>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       <CTASection />
