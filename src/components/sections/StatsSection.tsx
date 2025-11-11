@@ -15,14 +15,14 @@ const stats = [
   {
     icon: Facebook,
     label: "Facebook",
-    value: 5200,
-    suffix: "+",
+    value: 18.1,
+    suffix: "k+",
     color: "#1877F2",
   },
   {
     icon: Instagram,
     label: "Instagram",
-    value: 3800,
+    value: 2200,
     suffix: "+",
     color: "#E4405F",
   },

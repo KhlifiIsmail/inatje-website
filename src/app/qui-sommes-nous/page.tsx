@@ -37,7 +37,7 @@ const aboutFeatures = [
     icon: Users,
     title: "Nos Services",
     description:
-      "INAT Junior Entreprise offre des solutions innovantes pour une agriculture durable : cultures hors sol, systèmes d’irrigation intelligents, composteurs écologiques et études sur mesure pour accompagner les entreprises et agriculteurs dans l’optimisation de leurs projets.",
+      "INAT Junior Entreprise offre des solutions innovantes pour une agriculture durable : cultures hors sol, systèmes d'irrigation intelligents, composteurs écologiques et études sur mesure pour accompagner les entreprises et agriculteurs dans l'optimisation de leurs projets.",
     gradient: "from-emerald-500/20 to-teal-500/20",
   },
   {
@@ -54,50 +54,53 @@ const timeline = [
     year: "2012",
     event: "Création d'INAT Junior Entreprise",
     description:
-      "Fondation officielle au sein de l'Institut National Agronomique",
+      "Fondation officielle au sein de l'Institut National Agronomique et premier Forum d'Emploi et de Stages",
   },
   {
-    year: "2015",
-    event: "Premier Forum d'Emploi",
-    description: "Lancement de notre événement phare de networking",
+    year: "2017",
+    event: "Label Junior Engagé",
+    description:
+      "Reconnaissance par la Confédération Tunisienne des Junior Entreprises",
   },
   {
     year: "2018",
-    event: "Expansion des Services",
-    description: "Développement des services en hydroponie et irrigation",
+    event: "Association Officielle",
+    description:
+      "Nous sommes désormais une association officiellement reconnue par l'État",
   },
   {
-    year: "2022",
-    event: "Innovation Durable",
-    description: "Focus sur les solutions agronomiques durables",
+    year: "2021",
+    event: "Leadership Régional",
+    description: "Positionnement comme leader en innovation agronomique",
   },
   {
     year: "2025",
-    event: "Leadership Régional",
-    description: "Positionnement comme leader en innovation agronomique",
+    event: "Croissance Continue",
+    description:
+      "Fidèle à sa quête d'excellence, l'INAT Junior Entreprise renforce sa place de leader dans l'écosystème agronomique tunisien",
   },
 ];
 
 const values = [
   {
-    title: "Innovation",
+    title: "Confidentialité",
     icon: Lightbulb,
-    description: "Pionnier dans les solutions agronomiques",
+    description: "Protection des données et respect de la vie privée",
   },
   {
-    title: "Excellence",
+    title: "Diversité",
     icon: Award,
-    description: "Standards professionnels élevés",
+    description: "Inclusion et valorisation de toutes les perspectives",
   },
   {
-    title: "Durabilité",
+    title: "Engagement",
     icon: Target,
-    description: "Engagement environnemental fort",
+    description: "Dédication totale envers nos missions et partenaires",
   },
   {
-    title: "Collaboration",
+    title: "Professionnalisme",
     icon: Users,
-    description: "Travail d'équipe et partenariats",
+    description: "Excellence et rigueur dans toutes nos activités",
   },
 ];
 

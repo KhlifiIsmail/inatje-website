@@ -1,35 +1,47 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
-import { Sprout, Droplets, Recycle, FileText, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { Sprout, Droplets, Recycle, FileText, ArrowRight } from "lucide-react";
+import { Calendar } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
+    icon: Calendar,
+    title: "Forum d'Emploi et de Stages",
+    description:
+      "Événement annuel de networking reliant étudiants agronomes et entreprises pour des opportunités de stages et d'emplois.",
+    href: "/services/developpement-commercial",
+  },
+  {
     icon: Sprout,
-    title: 'Cultures Hors Sol',
-    description: 'Solutions hydroponiques, aquaponiques, murs végétaux et bacs potagers pour une agriculture urbaine durable.',
-    href: '/services/comite-etudes#cultures-hors-sol',
+    title: "Cultures Hors Sol",
+    description:
+      "Solutions hydroponiques, aquaponiques, murs végétaux et bacs potagers pour une agriculture urbaine durable.",
+    href: "/services/comite-etudes#cultures-hors-sol",
   },
   {
     icon: Droplets,
-    title: 'Système d\'Irrigation',
-    description: 'Conception de systèmes d\'irrigation modernes et efficaces pour optimiser la gestion de l\'eau.',
-    href: '/services/comite-etudes#irrigation',
+    title: "Système d'Irrigation",
+    description:
+      "Conception de systèmes d'irrigation modernes et efficaces pour optimiser la gestion de l'eau.",
+    href: "/services/comite-etudes#irrigation",
   },
   {
     icon: Recycle,
-    title: 'Système Composteur',
-    description: 'Solutions de gestion des déchets organiques et conception de systèmes de compostage.',
-    href: '/services/comite-etudes#composteur',
+    title: "Système Composteur",
+    description:
+      "Solutions de gestion des déchets organiques et conception de systèmes de compostage.",
+    href: "/services/comite-etudes#composteur",
   },
   {
     icon: FileText,
-    title: 'Études et Conseil',
-    description: 'Études de marché, techniques, de faisabilité et d\'impact environnemental pour vos projets.',
-    href: '/services/comite-etudes#etudes',
+    title: "Études et Conseil",
+    description:
+      "Études de marché, techniques, de faisabilité et d'impact environnemental pour vos projets.",
+    href: "/services/comite-etudes#etudes",
   },
 ];
 
@@ -47,7 +59,8 @@ export function ServicesPreview() {
           Nos <span className="gradient-text">Services</span>
         </h2>
         <p className="text-lg text-brand-gray max-w-2xl mx-auto">
-          Des solutions innovantes en ingénierie agronomique adaptées à vos besoins
+          Des solutions innovantes en ingénierie agronomique adaptées à vos
+          besoins
         </p>
       </motion.div>
 
@@ -91,7 +104,10 @@ export function ServicesPreview() {
         <Link href="/services">
           <Button variant="primary" size="lg" className="group">
             Découvrir tous nos services
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </Button>
         </Link>
       </motion.div>
