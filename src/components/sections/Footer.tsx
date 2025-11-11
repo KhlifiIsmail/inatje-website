@@ -1,33 +1,59 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUp,
+} from "lucide-react";
 
 const quickLinks = [
-  { name: 'Accueil', href: '/' },
-  { name: 'Qui Sommes-Nous', href: '/qui-sommes-nous' },
-  { name: 'Services', href: '/services' },
-  { name: 'Partenaires', href: '/partenaires' },
+  { name: "Accueil", href: "/" },
+  { name: "Qui Sommes-Nous", href: "/qui-sommes-nous" },
+  { name: "Services", href: "/services" },
+  { name: "Partenaires", href: "/partenaires" },
 ];
 
 const services = [
-  { name: 'Cultures Hors Sol', href: '/services/comite-etudes#cultures-hors-sol' },
-  { name: 'Système d\'Irrigation', href: '/services/comite-etudes#irrigation' },
-  { name: 'Études et Conseil', href: '/services/comite-etudes#etudes' },
-  { name: 'Forum Emploi', href: '/services/developpement-commercial' },
+  {
+    name: "Cultures Hors Sol",
+    href: "/services/comite-etudes#cultures-hors-sol",
+  },
+  { name: "Système d'Irrigation", href: "/services/comite-etudes#irrigation" },
+  { name: "Études et Conseil", href: "/services/comite-etudes#etudes" },
+  { name: "Forum Emploi", href: "/services/developpement-commercial" },
 ];
 
 const socialLinks = [
-  { name: 'Facebook', icon: Facebook, href: '#', color: 'hover:text-[#1877F2]' },
-  { name: 'Instagram', icon: Instagram, href: '#', color: 'hover:text-[#E4405F]' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'hover:text-[#0A66C2]' },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://www.facebook.com/INAT.Junior.Entreprise",
+    color: "hover:text-[#1877F2]",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/inat_junior_entreprise/",
+    color: "hover:text-[#E4405F]",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/junior-entreprise-inat/posts/?feedView=all",
+    color: "hover:text-[#0A66C2]",
+  },
 ];
 
 export function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -46,11 +72,12 @@ export function Footer() {
                 INAT <span className="font-light">Junior Entreprise</span>
               </h3>
               <p className="text-brand-neutral text-sm leading-relaxed">
-                Leader de son écosystème — Une organisation étudiante engagée pour l'innovation, 
-                le développement durable et l'excellence professionnelle.
+                Leader de son écosystème — Une organisation étudiante engagée
+                pour l'innovation, le développement durable et l'excellence
+                professionnelle.
               </p>
             </div>
-            
+
             {/* Social Links */}
             <div className="flex items-center space-x-4">
               {socialLinks.map((social) => (
@@ -77,7 +104,9 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="text-lg font-heading font-semibold mb-4">Liens Rapides</h4>
+            <h4 className="text-lg font-heading font-semibold mb-4">
+              Liens Rapides
+            </h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -99,7 +128,9 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="text-lg font-heading font-semibold mb-4">Nos Services</h4>
+            <h4 className="text-lg font-heading font-semibold mb-4">
+              Nos Services
+            </h4>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.name}>
@@ -124,8 +155,11 @@ export function Footer() {
             <h4 className="text-lg font-heading font-semibold mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-sm">
-                <Mail size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
-                <a 
+                <Mail
+                  size={18}
+                  className="text-brand-green mt-0.5 flex-shrink-0"
+                />
+                <a
                   href="mailto:contact1.inatje@gmail.com"
                   className="text-brand-neutral hover:text-brand-green transition-colors duration-300"
                 >
@@ -133,8 +167,11 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">
-                <Phone size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
-                <a 
+                <Phone
+                  size={18}
+                  className="text-brand-green mt-0.5 flex-shrink-0"
+                />
+                <a
                   href="tel:+21699197400"
                   className="text-brand-neutral hover:text-brand-green transition-colors duration-300"
                 >
@@ -142,7 +179,10 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-sm">
-                <MapPin size={18} className="text-brand-green mt-0.5 flex-shrink-0" />
+                <MapPin
+                  size={18}
+                  className="text-brand-green mt-0.5 flex-shrink-0"
+                />
                 <span className="text-brand-neutral">
                   43 Avenue Charles Nicolle, 1082 Tunis, Tunisia
                 </span>
@@ -154,9 +194,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           <p className="text-brand-neutral text-sm">
-            © {new Date().getFullYear()} INAT Junior Entreprise. Tous droits réservés.
+            © {new Date().getFullYear()} INAT Junior Entreprise. Tous droits
+            réservés.
           </p>
-          
+
           {/* Back to Top Button */}
           <motion.button
             onClick={scrollToTop}
