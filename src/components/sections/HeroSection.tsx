@@ -8,6 +8,15 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../public/images/simpleLogo.png";
 
+// Partner logos for hero carousel
+const heroPartners = [
+  { name: "Partner 1", logo: "/images/heropartners/1.webp" },
+  { name: "Partner 2", logo: "/images/heropartners/2.jpg" },
+  { name: "Partner 3", logo: "/images/heropartners/3.jpg" },
+  { name: "Partner 4", logo: "/images/heropartners/4.jpg" },
+  { name: "Partner 5", logo: "/images/heropartners/5.webp" },
+];
+
 export function HeroSection() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
@@ -16,7 +25,7 @@ export function HeroSection() {
   const [showCursor, setShowCursor] = useState(true);
   const [typingComplete, setTypingComplete] = useState(false);
 
-  const arabicText = "فلاّحة ونص.";
+  const arabicText = "فلاّحة ونص";
 
   useEffect(() => {
     // Load Google Fonts for Arabic
@@ -137,7 +146,6 @@ export function HeroSection() {
                       textShadow:
                         "0 0 40px rgba(218, 165, 32, 0.8), 0 0 20px rgba(218, 165, 32, 0.6)",
                       letterSpacing: "4px",
-                      // filter: 'drop-shadow(0 0 20px rgba(218, 165, 32, 0.7))'
                     }}
                   >
                     {displayedText}
@@ -189,7 +197,7 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen min-h-[600px] flex flex-col justify-between overflow-hidden">
         {/* Background Image with Animation */}
         <motion.div
           initial={{ scale: 1.1, opacity: 0 }}
@@ -211,95 +219,98 @@ export function HeroSection() {
           />
         </motion.div>
 
-        {/* Content */}
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-            className="space-y-8"
-          >
-            {/* Badge */}
+        {/* Main Content - Centered */}
+        <div className="relative z-20 flex-grow flex items-center justify-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={
-                !showLoader && imageLoaded ? { opacity: 1, scale: 1 } : {}
-              }
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-brand-green/15 backdrop-blur-sm border border-brand-green/30 rounded-full shadow-lg"
+              initial={{ opacity: 0, y: 40 }}
+              animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+              className="space-y-8"
             >
-              <Leaf size={16} className="text-brand-green" />
-              <span className="text-sm font-medium text-white">
-                Depuis 2012
-              </span>
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={
+                  !showLoader && imageLoaded ? { opacity: 1, scale: 1 } : {}
+                }
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="inline-flex items-center space-x-2 px-4 py-2 bg-brand-green/15 backdrop-blur-sm border border-brand-green/30 rounded-full shadow-lg"
+              >
+                <Leaf size={16} className="text-brand-green" />
+                <span className="text-sm font-medium text-white">
+                  Depuis 2012
+                </span>
+              </motion.div>
+
+              {/* Main Heading */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight"
+              >
+                INAT{" "}
+                <span className="text-brand-neutral font-light">
+                  Junior Entreprise
+                </span>
+              </motion.h1>
+
+              {/* Tagline */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="text-lg md:text-xl lg:text-2xl text-brand-neutral max-w-5xl mx-auto leading-relaxed"
+              >
+                Leader de son écosystème — Une organisation étudiante engagée
+                pour{" "}
+                <span className="text-brand-green font-semibold">
+                  l'innovation
+                </span>
+                ,{" "}
+                <span className="text-brand-green font-semibold">
+                  le développement durable
+                </span>{" "}
+                et{" "}
+                <span className="text-brand-green font-semibold">
+                  l'excellence professionnelle
+                </span>
+                .
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 1.4 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+              >
+                <Link href="/services">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group shadow-2xl"
+                  >
+                    Découvrir nos services
+                    <ArrowRight
+                      size={20}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-2 border-white/80 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm shadow-xl"
+                  >
+                    Nous contacter
+                  </Button>
+                </Link>
+              </motion.div>
             </motion.div>
-
-            {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight"
-            >
-              INAT{" "}
-              <span className="text-brand-neutral font-light">
-                Junior Entreprise
-              </span>
-            </motion.h1>
-
-            {/* Tagline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-brand-neutral max-w-5xl mx-auto leading-relaxed"
-            >
-              Leader de son écosystème — Une organisation étudiante engagée pour{" "}
-              <span className="text-brand-green font-semibold">
-                l'innovation
-              </span>
-              ,{" "}
-              <span className="text-brand-green font-semibold">
-                le développement durable
-              </span>{" "}
-              et{" "}
-              <span className="text-brand-green font-semibold">
-                l'excellence professionnelle
-              </span>
-              .
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={!showLoader && imageLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
-            >
-              <Link href="/services">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="group shadow-2xl"
-                >
-                  Découvrir nos services
-                  <ArrowRight
-                    size={20}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-white/80 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm shadow-xl"
-                >
-                  Nous contacter
-                </Button>
-              </Link>
-            </motion.div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Auto-disappearing Mouse Scroll Indicator */}
