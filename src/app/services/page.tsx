@@ -95,7 +95,7 @@ const mainServices = [
 ];
 
 const serviceStats = [
-  { label: "Projets Réalisés", value: "150+", icon: FileText },
+  { label: "Projets Réalisés", value: "70+", icon: FileText },
   { label: "Clients Satisfaits", value: "100+", icon: Users },
   { label: "Solutions Développées", value: "50+", icon: Beaker },
   { label: "Années d'Expérience", value: "13", icon: TrendingUp },
