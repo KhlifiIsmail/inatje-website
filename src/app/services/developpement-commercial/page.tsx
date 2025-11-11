@@ -120,9 +120,9 @@ const timeline2025 = [
 ];
 
 const pastEditions = [
-  { year: "2024", participants: "450+", companies: "45", placements: "82%" },
-  { year: "2023", participants: "380+", companies: "38", placements: "78%" },
-  { year: "2022", participants: "320+", companies: "32", placements: "75%" },
+  { year: "2024", participants: "600+", companies: "40+", placements: "85%" },
+  { year: "2023", participants: "580+", companies: "38", placements: "80%" },
+  { year: "2022", participants: "550+", companies: "35", placements: "85%" },
 ];
 
 const getTypeColor = (type: string) => {
@@ -483,13 +483,13 @@ export default function DeveloppementCommercialPage() {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-brand-gray">Entreprises:</span>
+                  <span className="text-brand-gray">Exposants:</span>
                   <span className="font-semibold text-brand-black">
                     {edition.companies}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-brand-gray">Taux de placement:</span>
+                  <span className="text-brand-gray">Taux de satisfaction:</span>
                   <span className="font-semibold text-brand-green">
                     {edition.placements}
                   </span>

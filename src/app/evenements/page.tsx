@@ -73,9 +73,9 @@ const pastEvents = [
   {
     year: "2024",
     title: "Forum d'Emploi et de Stages 2024",
-    participants: "450+",
-    companies: "45",
-    successRate: "82%",
+    participants: "600+",
+    companies: "40",
+    successRate: "85%",
     highlights: [
       "Premier forum post-COVID",
       "Record de participation",
@@ -85,9 +85,9 @@ const pastEvents = [
   {
     year: "2023",
     title: "Forum d'Emploi et de Stages 2023",
-    participants: "380+",
+    participants: "580+",
     companies: "38",
-    successRate: "78%",
+    successRate: "80%",
     highlights: [
       "Focus agriculture durable",
       "Ateliers innovation",
@@ -97,9 +97,9 @@ const pastEvents = [
   {
     year: "2022",
     title: "Forum d'Emploi et de Stages 2022",
-    participants: "320+",
-    companies: "32",
-    successRate: "75%",
+    participants: "550+",
+    companies: "35",
+    successRate: "85%",
     highlights: [
       "Première édition digitale",
       "Sessions virtuelles",
@@ -505,13 +505,13 @@ export default function EvenementsPage() {
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-brand-gray">Entreprises:</span>
+                  <span className="text-brand-gray">Exposants:</span>
                   <span className="font-semibold text-brand-black">
                     {event.companies}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-brand-gray">Taux de succès:</span>
+                  <span className="text-brand-gray">Taux de satisfaction:</span>
                   <span className="font-semibold text-brand-green">
                     {event.successRate}
                   </span>

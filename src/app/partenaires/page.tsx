@@ -93,7 +93,7 @@ const partnerLogos = [
 
 const partnerStats = [
   { label: "Partenaires Actifs", value: "50+", icon: Building2 },
-  { label: "Projets Collaboratifs", value: "120+", icon: Handshake },
+  { label: "Projets Collaboratifs", value: "80+", icon: Handshake },
   { label: "Années de Partenariat", value: "13", icon: TrendingUp },
   { label: "Étudiants Bénéficiaires", value: "1000+", icon: Users },
 ];
