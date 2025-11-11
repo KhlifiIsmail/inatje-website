@@ -36,7 +36,7 @@ const stats = [
   {
     icon: Briefcase,
     label: "Projets Réalisés",
-    value: 150,
+    value: 70,
     suffix: "+",
     color: "#daa520",
   },
