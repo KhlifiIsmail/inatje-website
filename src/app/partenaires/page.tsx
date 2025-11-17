@@ -11,83 +11,286 @@ import {
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
-// import Image from 'next/image';
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
 
-// TODO: Replace with actual partner logos from public/images/partners/
 const partnerLogos = [
   {
-    name: "Partner 1",
-    logo: "/images/placeholders/partner-1.png",
-    category: "Entreprises",
-    website: "https://example.com",
-  },
-  {
-    name: "Partner 2",
-    logo: "/images/placeholders/partner-2.png",
+    name: "ANETI",
+    logo: "/images/partners/agence_nationale_pour_lemploi_et_le_travail_indpendant_aneti_logo.jpg",
     category: "Institutions",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 3",
-    logo: "/images/placeholders/partner-3.png",
+    name: "APBS",
+    logo: "/images/partners/apbs-logo.jpg",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "APIA",
+    logo: "/images/partners/Apia.jpg",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "Bayer",
+    logo: "/images/partners/bayer.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Bioprotection",
+    logo: "/images/partners/bioprotection.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Bouderbala",
+    logo: "/images/partners/boud.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "CIRAD",
+    logo: "/images/partners/cirad.jpg",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "COT",
+    logo: "/images/partners/cot.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "GID",
+    logo: "/images/partners/gid.png",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "GIF",
+    logo: "/images/partners/GIF.jpg",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "GIL",
+    logo: "/images/partners/GIL.JPG",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "GIPP",
+    logo: "/images/partners/GIPP.png",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "INGC",
+    logo: "/images/partners/ingc.png",
+    category: "Institutions",
+    website: "#",
+  },
+  {
+    name: "Innovinat",
+    logo: "/images/partners/innovinat (1).png",
     category: "ONG",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 4",
-    logo: "/images/placeholders/partner-4.png",
+    name: "Instant M",
+    logo: "/images/partners/instant M.jpg",
     category: "Entreprises",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 5",
-    logo: "/images/placeholders/partner-5.png",
+    name: "INSTM",
+    logo: "/images/partners/INSTM.png",
     category: "Institutions",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 6",
-    logo: "/images/placeholders/partner-6.png",
+    name: "LBM",
+    logo: "/images/partners/lbm.png",
     category: "Entreprises",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 7",
-    logo: "/images/placeholders/partner-7.png",
+    name: "Essenia",
+    logo: "/images/partners/logo essenia0002.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "RET",
+    logo: "/images/partners/logo ret (1) (1).jpg",
     category: "ONG",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 8",
-    logo: "/images/placeholders/partner-8.png",
-    category: "Institutions",
-    website: "https://example.com",
-  },
-  {
-    name: "Partner 9",
-    logo: "/images/placeholders/partner-9.png",
+    name: "Epi d'Or",
+    logo: "/images/partners/logo-epi-dor.png",
     category: "Entreprises",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 10",
-    logo: "/images/placeholders/partner-10.png",
+    name: "Mabrouka",
+    logo: "/images/partners/mabrouka.png",
     category: "Entreprises",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 11",
-    logo: "/images/placeholders/partner-11.png",
+    name: "Manar Thon",
+    logo: "/images/partners/manar thon.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Maz",
+    logo: "/images/partners/maz.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "MDIM",
+    logo: "/images/partners/mdim.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Medifit",
+    logo: "/images/partners/medifit.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Microcreed",
+    logo: "/images/partners/Microcreed.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Planète Verte",
+    logo: "/images/partners/planète verte.jpg",
     category: "ONG",
-    website: "https://example.com",
+    website: "#",
   },
   {
-    name: "Partner 12",
-    logo: "/images/placeholders/partner-12.png",
+    name: "Poul",
+    logo: "/images/partners/poul.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Rayen Food",
+    logo: "/images/partners/Rayen food.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Partner",
+    logo: "/images/partners/received_261334910269184.jpeg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Sadira",
+    logo: "/images/partners/sadira.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "SAG",
+    logo: "/images/partners/sag.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Sanlucar",
+    logo: "/images/partners/sanlucar.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "SCET",
+    logo: "/images/partners/scet.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "SFBT",
+    logo: "/images/partners/sfbt.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "SMBG",
+    logo: "/images/partners/SMBG.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "SNA",
+    logo: "/images/partners/sna.png",
     category: "Institutions",
-    website: "https://example.com",
+    website: "#",
+  },
+  {
+    name: "Solagri",
+    logo: "/images/partners/solagri.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Sonalika",
+    logo: "/images/partners/sonalika.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Sosec",
+    logo: "/images/partners/sosec.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Sosem",
+    logo: "/images/partners/Sosem.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "STB",
+    logo: "/images/partners/stb.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "Telecom",
+    logo: "/images/partners/telecom.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "TTM",
+    logo: "/images/partners/TTM.jpg",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "UP TUN",
+    logo: "/images/partners/UP TUN-01.png",
+    category: "Entreprises",
+    website: "#",
+  },
+  {
+    name: "VIT",
+    logo: "/images/partners/vit.png",
+    category: "Entreprises",
+    website: "#",
   },
 ];
 
@@ -320,7 +523,7 @@ export default function PartenairesPage() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => scrollCarousel("left")}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
+            className="absolute left-0 top-[40%] transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
           >
             <ArrowLeft size={20} />
           </motion.button>
@@ -329,7 +532,7 @@ export default function PartenairesPage() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => scrollCarousel("right")}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
+            className="absolute right-0 top-[40%] transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
           >
             <ArrowRight size={20} />
           </motion.button>
@@ -364,7 +567,7 @@ export default function PartenairesPage() {
                 onClick={() => window.open(partner.website, "_blank")}
               >
                 {/* Placeholder for partner logo */}
-                <div className="w-full h-full bg-brand-green/10 rounded-lg flex flex-col items-center justify-center group-hover:bg-brand-green/20 transition-colors duration-300">
+                {/* <div className="w-full h-full bg-brand-green/10 rounded-lg flex flex-col items-center justify-center group-hover:bg-brand-green/20 transition-colors duration-300">
                   <div className="w-16 h-16 bg-brand-green/20 rounded-lg flex items-center justify-center mb-2 group-hover:bg-brand-green/30">
                     <Building2 size={24} className="text-brand-green" />
                   </div>
@@ -374,15 +577,15 @@ export default function PartenairesPage() {
                   <span className="text-xs text-brand-gray mt-1">
                     {partner.category}
                   </span>
-                </div>
+                </div> */}
                 {/* TODO: Replace with actual image */}
-                {/* <Image 
-                  src={partner.logo} 
-                  alt={partner.name} 
-                  width={120} 
-                  height={60} 
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={120}
+                  height={60}
                   className="grayscale group-hover:grayscale-0 transition-all duration-300"
-                /> */}
+                />
               </motion.div>
             ))}
           </div>
