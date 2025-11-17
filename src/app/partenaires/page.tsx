@@ -563,53 +563,20 @@ export default function PartenairesPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="flex-shrink-0 w-48 h-32 bg-white rounded-xl p-6 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 group cursor-pointer"
-                onClick={() => window.open(partner.website, "_blank")}
+                className="flex-shrink-0 w-48 h-32 bg-white rounded-xl p-6 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 group"
               >
-                {/* Placeholder for partner logo */}
-                {/* <div className="w-full h-full bg-brand-green/10 rounded-lg flex flex-col items-center justify-center group-hover:bg-brand-green/20 transition-colors duration-300">
-                  <div className="w-16 h-16 bg-brand-green/20 rounded-lg flex items-center justify-center mb-2 group-hover:bg-brand-green/30">
-                    <Building2 size={24} className="text-brand-green" />
-                  </div>
-                  <span className="text-xs text-brand-green font-medium text-center">
-                    {partner.name}
-                  </span>
-                  <span className="text-xs text-brand-gray mt-1">
-                    {partner.category}
-                  </span>
-                </div> */}
-                {/* TODO: Replace with actual image */}
                 <Image
                   src={partner.logo}
                   alt={partner.name}
                   width={120}
                   height={60}
-                  className="grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="md:grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Partner Grid for Mobile */}
-        <div className="md:hidden grid grid-cols-2 gap-4 mt-8">
-          {partnerLogos.slice(0, 6).map((partner, index) => (
-            <motion.div
-              key={partner.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl p-4 shadow-lg border border-gray-100"
-            >
-              <div className="w-full h-20 bg-brand-green/10 rounded-lg flex items-center justify-center">
-                <span className="text-xs text-brand-green font-medium">
-                  {partner.name}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </section>
 
       {/* Partnership Benefits */}
