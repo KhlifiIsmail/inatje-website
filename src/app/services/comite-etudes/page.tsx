@@ -28,11 +28,14 @@ const services = [
     description:
       "Solutions complètes pour l'agriculture moderne sans sol traditionnel.",
     gradient: "from-green-500 to-emerald-600",
+    presentationLink:
+      "https://docs.google.com/presentation/d/1bd_tK8gQtUHi4Eh5aI_zGhedMvRqhcbu/edit?slide=id.p16#slide=id.p16",
     subServices: [
       {
         name: "Système Hydroponique",
         description:
           "Culture de plantes dans des solutions nutritives, sans sol. Rendements élevés et contrôle précis.",
+        image: "/images/services/cultures-hors-sol/hydroponique.jpg",
         benefits: [
           "Économie d'eau 90%",
           "Croissance 30% plus rapide",
@@ -49,6 +52,7 @@ const services = [
         name: "Système Aquaponique",
         description:
           "Combinaison de l'aquaculture et de l'hydroponie. Écosystème fermé et durable.",
+        image: "/images/services/cultures-hors-sol/aquaponique.jpg",
         benefits: [
           "Double production",
           "Cycle fermé",
@@ -61,6 +65,7 @@ const services = [
         name: "Mur Végétal",
         description:
           "Solutions d'agriculture verticale pour optimiser l'espace et purifier l'air.",
+        image: "/images/services/cultures-hors-sol/mur-vegetal.jpg",
         benefits: [
           "Gain d'espace",
           "Purification air",
@@ -73,6 +78,7 @@ const services = [
         name: "Bac Potager",
         description:
           "Jardins surélevés pour agriculture urbaine et éducation environnementale.",
+        image: "/images/services/cultures-hors-sol/bac-potager.jpg",
         benefits: [
           "Facile à entretenir",
           "Ergonomique",
@@ -490,31 +496,31 @@ export default function ComiteEtudesPage() {
                           className="group-hover:translate-x-1 transition-transform"
                         />
                       </Button>
-                      <Button variant="outline">
-                        En savoir plus
-                        <ExternalLink size={18} />
-                      </Button>
+                      <Link
+                        href={
+                          activeService === "cultures-hors-sol"
+                            ? currentService.presentationLink
+                            : "#"
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button variant="outline">
+                          En savoir plus
+                          <ExternalLink size={18} />
+                        </Button>
+                      </Link>
                     </div>
                   </div>
 
-                  {/* Visual Placeholder */}
-                  <div
-                    className={`bg-gradient-to-br ${currentService.gradient} flex items-center justify-center relative overflow-hidden`}
-                  >
-                    <div className="text-center text-white p-12">
-                      <currentService.icon
-                        size={80}
-                        className="mx-auto mb-4 opacity-20"
-                      />
-                      <p className="text-lg opacity-70">
-                        [PLACEHOLDER: Service Image]
-                      </p>
-                      <p className="text-sm opacity-50 mt-2">
-                        Visual content for{" "}
-                        {currentService.subServices[activeSubService].name}
-                      </p>
-                    </div>
-                    <div className="absolute inset-0 bg-black/20"></div>
+                  {/* Visual Content */}
+                  <div className="relative overflow-hidden rounded-r-3xl">
+                    <img
+                      src={currentService.subServices[activeSubService].image}
+                      alt={currentService.subServices[activeSubService].name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
                   </div>
                 </div>
               </motion.div>
