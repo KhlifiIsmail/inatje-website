@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 // Real partner logos from heropartners folder
 const partnerLogos = [
-  { name: 'Partner 1', logo: '/images/heropartners/1.webp' },
-  { name: 'Partner 2', logo: '/images/heropartners/2.jpg' },
-  { name: 'Partner 3', logo: '/images/heropartners/3.jpg' },
-  { name: 'Partner 4', logo: '/images/heropartners/4.jpg' },
-  { name: 'Partner 5', logo: '/images/heropartners/5.webp' },
+  { name: "Partner 1", logo: "/images/heropartners/1.webp" },
+  { name: "Partner 2", logo: "/images/heropartners/2.jpg" },
+  { name: "Partner 3", logo: "/images/heropartners/3.jpg" },
+  { name: "Partner 4", logo: "/images/heropartners/4.jpg" },
+  { name: "Partner 5", logo: "/images/heropartners/eis.jpg" },
 ];
 
 export function PartnersPreview() {
@@ -30,7 +30,8 @@ export function PartnersPreview() {
           Nos <span className="gradient-text">Partenaires</span>
         </h2>
         <p className="text-lg text-brand-gray max-w-2xl mx-auto">
-          Une collaboration fondée sur la confiance mutuelle, l'engagement et la volonté commune de créer un impact durable.
+          Une collaboration fondée sur la confiance mutuelle, l'engagement et la
+          volonté commune de créer un impact durable.
         </p>
       </motion.div>
 
@@ -65,7 +66,7 @@ export function PartnersPreview() {
             transition={{
               duration: 12,
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
             }}
             className="flex space-x-4"
           >
@@ -97,7 +98,10 @@ export function PartnersPreview() {
         <Link href="/partenaires">
           <Button variant="primary" size="lg" className="group">
             Voir tous nos partenaires
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </Button>
         </Link>
       </motion.div>

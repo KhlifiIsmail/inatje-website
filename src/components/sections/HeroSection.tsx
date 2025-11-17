@@ -14,7 +14,7 @@ const heroPartners = [
   { name: "Partner 2", logo: "/images/heropartners/2.jpg" },
   { name: "Partner 3", logo: "/images/heropartners/3.jpg" },
   { name: "Partner 4", logo: "/images/heropartners/4.jpg" },
-  { name: "Partner 5", logo: "/images/heropartners/5.webp" },
+  { name: "Partner 5", logo: "/images/heropartners/eis.jpg" },
 ];
 
 export function HeroSection() {
