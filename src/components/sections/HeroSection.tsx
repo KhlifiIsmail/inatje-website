@@ -321,51 +321,55 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.8 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="fixed bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group z-30"
+              className="absolute bottom-8 left-0 right-0 flex justify-center cursor-pointer group z-30"
               onClick={() =>
                 window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
               }
             >
-              {/* Perfectly centered blurred background */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-black/40 backdrop-blur-md rounded-full border border-white/10" />
+              <div className="relative">
+                {/* Centered blurred background */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-black/40 backdrop-blur-md rounded-full border border-white/10" />
+                </div>
 
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative flex flex-col items-center justify-center space-y-2 p-6"
-              >
-                {/* Actual Mouse Icon - Perfectly Centered */}
                 <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  animate={{
-                    scale: [1, 1.05, 1],
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
                   }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="text-white group-hover:text-brand-green transition-colors duration-300 flex items-center justify-center"
+                  className="relative flex flex-col items-center justify-center space-y-2 p-6"
                 >
-                  <Mouse size={28} className="drop-shadow-lg" />
-                </motion.div>
-
-                {/* Text - Perfectly Centered */}
-                <motion.div
-                  animate={{ opacity: [0.7, 1, 0.7] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="text-center"
-                >
-                  <p className="text-white/80 text-[10px] font-medium tracking-wider group-hover:text-brand-green transition-colors duration-300">
-                    SCROLL
-                  </p>
+                  {/* Mouse Icon */}
                   <motion.div
-                    animate={{ scaleX: [0, 1, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                    className="h-px bg-brand-green mt-0.5 origin-center w-8 ml-1"
-                  />
+                    whileHover={{ scale: 1.1 }}
+                    animate={{
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="text-white group-hover:text-brand-green transition-colors duration-300"
+                  >
+                    <Mouse size={28} className="drop-shadow-lg" />
+                  </motion.div>
+
+                  {/* Text */}
+                  <motion.div
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="text-center flex flex-col items-center"
+                  >
+                    <p className="text-white/80 text-[10px] font-medium tracking-wider group-hover:text-brand-green transition-colors duration-300">
+                      SCROLL
+                    </p>
+                    <motion.div
+                      animate={{ scaleX: [0, 1, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+                      className="h-px bg-brand-green mt-0.5 w-8"
+                    />
+                  </motion.div>
                 </motion.div>
-              </motion.div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
