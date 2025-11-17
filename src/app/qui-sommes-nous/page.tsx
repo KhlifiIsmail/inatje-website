@@ -277,7 +277,51 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="relative">
+          {/* Mobile Timeline - Vertical Cards */}
+          <div className="md:hidden space-y-6">
+            {timeline.map((item, index) => (
+              <motion.div
+                key={item.year}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className={`flex gap-4 ${
+                  index % 2 === 0 ? "" : "flex-row-reverse"
+                }`}
+              >
+                {/* Timeline Indicator */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <motion.div
+                    whileTap={{ scale: 1.3 }}
+                    className="w-3 h-3 bg-brand-green rounded-full border-2 border-white shadow-lg"
+                  />
+                  {index < timeline.length - 1 && (
+                    <div className="w-0.5 h-full bg-gradient-to-b from-brand-green/50 to-transparent mt-2"></div>
+                  )}
+                </div>
+
+                {/* Content Card */}
+                <motion.div
+                  whileTap={{ scale: 0.98 }}
+                  className={`flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 ${
+                    index % 2 === 0 ? "" : "text-right"
+                  }`}
+                >
+                  <div className="inline-block px-4 py-1.5 bg-brand-green/20 rounded-full mb-3">
+                    <span className="text-xl font-bold text-brand-green">
+                      {item.year}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-white">{item.event}</h3>
+                  <p className="text-sm text-brand-neutral leading-relaxed">{item.description}</p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop Timeline - Original Design */}
+          <div className="hidden md:block relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-brand-green to-transparent"></div>
 
             {timeline.map((item, index) => (
@@ -287,28 +331,28 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                className={`flex items-center mb-12 md:mb-16 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } flex-row`}
+                className={`flex items-center mb-16 ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                }`}
               >
-                <div className="w-1/2 pr-4 pl-4 md:pr-8 md:pl-8">
+                <div className="w-1/2 pr-8 pl-8">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 ${
-                      index % 2 === 0 ? "md:text-right" : "md:text-left"
-                    } text-left`}
+                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 ${
+                      index % 2 === 0 ? "text-right" : "text-left"
+                    }`}
                   >
-                    <div className="text-2xl md:text-3xl font-bold text-brand-green mb-2">
+                    <div className="text-3xl font-bold text-brand-green mb-2">
                       {item.year}
                     </div>
-                    <h3 className="text-base md:text-xl font-semibold mb-2 md:mb-3">{item.event}</h3>
-                    <p className="text-sm md:text-base text-brand-neutral">{item.description}</p>
+                    <h3 className="text-xl font-semibold mb-3">{item.event}</h3>
+                    <p className="text-base text-brand-neutral">{item.description}</p>
                   </motion.div>
                 </div>
 
                 <motion.div
                   whileHover={{ scale: 1.2 }}
-                  className="w-4 h-4 md:w-6 md:h-6 bg-brand-green rounded-full border-2 md:border-4 border-white shadow-lg z-10 flex-shrink-0"
+                  className="w-6 h-6 bg-brand-green rounded-full border-4 border-white shadow-lg z-10 flex-shrink-0"
                 />
 
                 <div className="w-1/2"></div>
@@ -417,8 +461,8 @@ export default function AboutPage() {
                     {/* Premium overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-black/60 via-transparent to-transparent" />
                     
-                    {/* Floating stats overlay */}
-                    <div className="absolute bottom-6 left-6 right-6">
+                    {/* Floating stats overlay - Hidden on Mobile */}
+                    <div className="hidden md:block absolute bottom-6 left-6 right-6">
                       <div className="grid grid-cols-3 gap-4">
                         {[
                           { number: "50+", label: "Membres Actifs" },
