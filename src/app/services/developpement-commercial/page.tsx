@@ -55,7 +55,7 @@ const forumFeatures = [
   },
   {
     icon: Award,
-    title: "Ateliers de Formation",
+    title: "Competiton INAT JEnovate",
     description:
       "Sessions spécialisées pour améliorer les compétences et la préparation professionnelle.",
     benefits: [

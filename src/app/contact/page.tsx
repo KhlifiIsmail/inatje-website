@@ -34,21 +34,21 @@ const socialLinks = [
   {
     name: "Facebook",
     icon: Facebook,
-    href: "#",
+    href: "https://www.facebook.com/INAT.Junior.Entreprise",
     color: "hover:text-[#1877F2]",
     bg: "hover:bg-[#1877F2]",
   },
   {
     name: "Instagram",
     icon: Instagram,
-    href: "#",
+    href: "https://www.instagram.com/inat_junior_entreprise/",
     color: "hover:text-[#E4405F]",
     bg: "hover:bg-[#E4405F]",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "#",
+    href: "https://www.linkedin.com/company/junior-entreprise-inat/posts/?feedView=all",
     color: "hover:text-[#0A66C2]",
     bg: "hover:bg-[#0A66C2]",
   },
@@ -207,7 +207,9 @@ export default function ContactPage() {
                 <div className="text-base md:text-lg font-semibold text-white mb-1">
                   Réponse Rapide
                 </div>
-                <div className="text-xs md:text-sm text-brand-neutral">Sous 24-48h</div>
+                <div className="text-xs md:text-sm text-brand-neutral">
+                  Sous 24-48h
+                </div>
               </div>
 
               <div className="text-center">
