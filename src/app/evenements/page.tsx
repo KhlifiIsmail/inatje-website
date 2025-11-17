@@ -430,23 +430,23 @@ const HeroSection: React.FC = () => {
           {/* CTA Buttons */}
           <motion.div
             variants={fadeInUpVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pt-6 px-4"
           >
-            <Link href="#featured-event">
+            <Link href="#featured-event" className="w-full sm:w-auto">
               <Button
                 variant="primary"
                 size="lg"
-                className="group px-8 py-4 text-lg font-semibold shadow-2xl shadow-brand-green/30 hover:shadow-brand-green/50 transition-all duration-300"
+                className="group w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-2xl shadow-brand-green/30 hover:shadow-brand-green/50 transition-all duration-300"
               >
                 Découvrir l'événement
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 variant="outline"
                 size="lg"
-                className="px-8 py-4 text-lg font-semibold border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+                className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               >
                 Nous contacter
               </Button>
@@ -618,16 +618,16 @@ const FeaturedEventCard: React.FC = () => {
             </div>
 
             {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
               <Link href={FEATURED_EVENT.registrationLink} className="flex-1">
                 <Button
                   variant="primary"
                   size="lg"
-                  className="group w-full text-lg font-semibold shadow-xl shadow-brand-green/20 hover:shadow-2xl hover:shadow-brand-green/30 transition-all"
+                  className="group w-full text-base md:text-lg font-semibold shadow-xl shadow-brand-green/20 hover:shadow-2xl hover:shadow-brand-green/30 transition-all"
                 >
-                  <Target className="w-5 h-5" />
+                  <Target className="w-4 h-4 md:w-5 md:h-5" />
                   S'inscrire maintenant
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
 
@@ -640,10 +640,10 @@ const FeaturedEventCard: React.FC = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full text-lg font-semibold border-2 hover:bg-slate-50"
+                  className="w-full text-base md:text-lg font-semibold border-2 hover:bg-slate-50"
                 >
                   En savoir plus
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
                 </Button>
               </a>
             </div>

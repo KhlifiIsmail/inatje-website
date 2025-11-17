@@ -14,6 +14,7 @@ import {
   CheckCircle,
   ExternalLink,
   Play,
+  Megaphone,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
@@ -101,7 +102,8 @@ const services = [
       {
         name: "Irrigation Goutte-à-Goutte",
         description: "Système de micro-irrigation précis et économe en eau.",
-        image: "/images/services/arrosage-plantes-legumes-dans-champ-irrigation-goutte-goutte-agrandi-ai-genere.webp",
+        image:
+          "/images/services/arrosage-plantes-legumes-dans-champ-irrigation-goutte-goutte-agrandi-ai-genere.webp",
         benefits: [
           "Économie 50% d'eau",
           "Précision maximale",
@@ -345,9 +347,70 @@ export default function ComiteEtudesPage() {
       </section>
 
       {/* Service Navigation */}
-      <section className="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex flex-wrap gap-2">
+      <section className="sticky top-16 md:top-20 z-40 bg-gradient-to-b from-white via-white to-gray-50/50 backdrop-blur-xl border-b border-gray-200/60 shadow-md">
+        <div className="max-w-7xl mx-auto">
+          {/* Mobile: Vertical Dropdown Style */}
+          <div className="md:hidden px-4 py-3">
+            <div className="relative">
+              <motion.button
+                onClick={() => {
+                  const currentIndex = services.findIndex(s => s.id === activeService);
+                  const nextIndex = (currentIndex + 1) % services.length;
+                  setActiveService(services[nextIndex].id);
+                  setActiveSubService(0);
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-brand-green to-emerald-600 text-white rounded-2xl px-4 py-3.5 flex items-center justify-between shadow-lg shadow-brand-green/25"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-white/20 rounded-xl">
+                    {React.createElement(services.find(s => s.id === activeService)?.icon || Sprout, {
+                      size: 18,
+                      className: "text-white"
+                    })}
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-medium opacity-80">Service</div>
+                    <div className="text-sm font-bold">
+                      {services.find(s => s.id === activeService)?.title}
+                    </div>
+                  </div>
+                </div>
+                <motion.div
+                  animate={{ rotate: 90 }}
+                  className="text-white/80"
+                >
+                  <ArrowRight size={20} />
+                </motion.div>
+              </motion.button>
+
+              {/* Service Indicators */}
+              <div className="flex gap-1.5 justify-center mt-3">
+                {services.map((service, idx) => (
+                  <button
+                    key={service.id}
+                    onClick={() => {
+                      setActiveService(service.id);
+                      setActiveSubService(0);
+                    }}
+                    className="group relative"
+                  >
+                    <motion.div
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        activeService === service.id
+                          ? "w-8 bg-brand-green"
+                          : "w-1.5 bg-gray-300"
+                      }`}
+                      whileTap={{ scale: 0.9 }}
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Premium Wrapped Tabs */}
+          <div className="hidden md:flex flex-wrap gap-3 px-6 py-4">
             {services.map((service) => (
               <motion.button
                 key={service.id}
@@ -355,16 +418,29 @@ export default function ComiteEtudesPage() {
                   setActiveService(service.id);
                   setActiveSubService(0);
                 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className={`group relative px-5 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center gap-3 shadow-md ${
                   activeService === service.id
-                    ? "bg-brand-green text-white shadow-lg"
-                    : "bg-brand-neutral/50 text-brand-darkgray hover:bg-brand-green/10 hover:text-brand-green"
+                    ? "bg-gradient-to-r from-brand-green to-emerald-600 text-white shadow-brand-green/30"
+                    : "bg-white text-brand-darkgray hover:bg-gray-50 hover:shadow-lg"
                 }`}
               >
-                <service.icon size={18} />
+                <div className={`p-2 rounded-xl transition-all duration-300 ${
+                  activeService === service.id
+                    ? "bg-white/20"
+                    : "bg-brand-green/10 group-hover:bg-brand-green/20"
+                }`}>
+                  <service.icon size={18} className={activeService === service.id ? "text-white" : "text-brand-green"} />
+                </div>
                 <span>{service.title}</span>
+                {activeService === service.id && (
+                  <motion.div
+                    layoutId="activeIndicator"
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-white/80 rounded-full shadow-lg"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
               </motion.button>
             ))}
           </div>
@@ -402,7 +478,7 @@ export default function ComiteEtudesPage() {
             </div>
 
             {/* Sub-Services Grid */}
-            <div className="grid lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
               {currentService.subServices.map((subService, index) => (
                 <motion.div
                   key={subService.name}
@@ -410,16 +486,16 @@ export default function ComiteEtudesPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setActiveSubService(index)}
-                  className={`cursor-pointer p-6 rounded-2xl border transition-all duration-300 ${
+                  className={`cursor-pointer p-4 md:p-6 rounded-2xl border transition-all duration-300 ${
                     activeSubService === index
-                      ? "bg-white border-brand-green shadow-lg scale-105"
+                      ? "bg-white border-brand-green shadow-lg md:scale-105"
                       : "bg-brand-neutral/30 border-gray-200 hover:border-brand-green/50 hover:shadow-md"
                   }`}
                 >
-                  <h3 className="text-lg font-semibold mb-3 text-brand-black">
+                  <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 text-brand-black">
                     {subService.name}
                   </h3>
-                  <p className="text-sm text-brand-gray line-clamp-3">
+                  <p className="text-xs md:text-sm text-brand-gray line-clamp-3">
                     {subService.description}
                   </p>
                 </motion.div>
@@ -434,28 +510,28 @@ export default function ComiteEtudesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden"
+                className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 overflow-hidden"
               >
                 <div className="grid lg:grid-cols-2 gap-0">
                   {/* Content */}
-                  <div className="p-12">
-                    <h3 className="text-3xl font-heading font-bold mb-6 text-brand-black">
+                  <div className="p-6 md:p-8 lg:p-12 order-2 lg:order-1">
+                    <h3 className="text-2xl md:text-3xl font-heading font-bold mb-4 md:mb-6 text-brand-black">
                       {currentService.subServices[activeSubService].name}
                     </h3>
 
-                    <p className="text-lg text-brand-gray mb-8 leading-relaxed">
+                    <p className="text-base md:text-lg text-brand-gray mb-6 md:mb-8 leading-relaxed">
                       {currentService.subServices[activeSubService].description}
                     </p>
 
-                    <div className="mb-8">
-                      <h4 className="text-xl font-semibold mb-4 text-brand-black flex items-center">
+                    <div className="mb-6 md:mb-8">
+                      <h4 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-brand-black flex items-center">
                         <CheckCircle
-                          size={20}
+                          size={18}
                           className="text-brand-green mr-2"
                         />
                         Avantages Clés
                       </h4>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                         {currentService.subServices[
                           activeSubService
                         ].benefits.map((benefit, idx) => (
@@ -467,19 +543,19 @@ export default function ComiteEtudesPage() {
                             className="flex items-center space-x-2 text-brand-gray"
                           >
                             <CheckCircle
-                              size={16}
+                              size={14}
                               className="text-brand-green flex-shrink-0"
                             />
-                            <span className="text-sm">{benefit}</span>
+                            <span className="text-xs md:text-sm">{benefit}</span>
                           </motion.div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="mb-8">
-                      <h4 className="text-xl font-semibold mb-4 text-brand-black flex items-center">
+                    <div className="mb-6 md:mb-8">
+                      <h4 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-brand-black flex items-center">
                         <TrendingUp
-                          size={20}
+                          size={18}
                           className="text-brand-green mr-2"
                         />
                         Applications
@@ -490,7 +566,7 @@ export default function ComiteEtudesPage() {
                         ].applications.map((app, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-brand-green/10 text-brand-green rounded-full text-sm font-medium"
+                            className="px-2.5 py-1 bg-brand-green/10 text-brand-green rounded-full text-xs md:text-sm font-medium"
                           >
                             {app}
                           </span>
@@ -498,8 +574,8 @@ export default function ComiteEtudesPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4">
-                      <Button variant="primary" className="group">
+                    <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                      <Button variant="primary" size="md" className="group w-full sm:w-auto">
                         Demander un devis
                         <ArrowRight
                           size={18}
@@ -511,8 +587,9 @@ export default function ComiteEtudesPage() {
                           href={currentService.presentationLink || "#"}
                           target="_blank"
                           rel="noopener noreferrer"
+                          className="w-full sm:w-auto"
                         >
-                          <Button variant="outline" className="group">
+                          <Button variant="outline" size="md" className="group w-full">
                             En savoir plus
                             <ExternalLink
                               size={18}
@@ -523,8 +600,9 @@ export default function ComiteEtudesPage() {
                       ) : (
                         <Button
                           variant="outline"
+                          size="md"
                           disabled
-                          className="opacity-50 cursor-not-allowed"
+                          className="opacity-50 cursor-not-allowed w-full sm:w-auto"
                         >
                           <span className="flex items-center space-x-2">
                             <svg
@@ -538,10 +616,18 @@ export default function ComiteEtudesPage() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             >
-                              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                              <rect
+                                x="3"
+                                y="11"
+                                width="18"
+                                height="11"
+                                rx="2"
+                                ry="2"
+                              ></rect>
                               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
-                            <span>Documentation bientôt disponible</span>
+                            <span className="hidden md:inline">Documentation bientôt disponible</span>
+                            <span className="md:hidden">Bientôt disponible</span>
                           </span>
                         </Button>
                       )}
@@ -549,7 +635,7 @@ export default function ComiteEtudesPage() {
                   </div>
 
                   {/* Visual Content */}
-                  <div className="relative overflow-hidden rounded-r-3xl min-h-[500px] lg:min-h-full">
+                  <div className="relative overflow-hidden rounded-t-2xl lg:rounded-t-none lg:rounded-r-3xl min-h-[280px] md:min-h-[400px] lg:min-h-full order-1 lg:order-2">
                     <img
                       src={currentService.subServices[activeSubService].image}
                       alt={currentService.subServices[activeSubService].name}

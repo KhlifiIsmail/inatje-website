@@ -191,7 +191,7 @@ export default function ServicesPage() {
 
       {/* Main Services Cards */}
       <section className="section-container">
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {mainServices.map((service, index) => (
             <motion.div
               key={service.id}
@@ -201,17 +201,61 @@ export default function ServicesPage() {
               transition={{ delay: index * 0.2 }}
               className="group"
             >
-              <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden">
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden">
                 {/* Service Header */}
                 <div
-                  className="p-8 cursor-pointer"
+                  className="p-5 md:p-8 cursor-pointer"
                   onClick={() =>
                     setExpandedService(
                       expandedService === service.id ? null : service.id
                     )
                   }
                 >
-                  <div className="flex items-center justify-between">
+                  {/* Mobile Layout */}
+                  <div className="md:hidden space-y-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-start gap-3 flex-1">
+                        <motion.div
+                          whileTap={{ scale: 0.95 }}
+                          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg flex-shrink-0`}
+                        >
+                          <service.icon className="w-7 h-7 text-white" />
+                        </motion.div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-xl font-heading font-bold text-brand-black mb-1 group-hover:text-brand-green transition-colors">
+                            {service.title}
+                          </h3>
+                          <p className="text-xs text-brand-green font-medium mb-2">
+                            {service.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                      <motion.div
+                        animate={{
+                          rotate: expandedService === service.id ? 180 : 0,
+                        }}
+                        transition={{ duration: 0.3 }}
+                        className="flex-shrink-0"
+                      >
+                        <ChevronDown size={20} className="text-brand-gray" />
+                      </motion.div>
+                    </div>
+                    <p className="text-sm text-brand-gray leading-relaxed">
+                      {service.description}
+                    </p>
+                    <Link href={service.href} className="block">
+                      <Button variant="primary" size="sm" className="group w-full">
+                        Explorer
+                        <ArrowRight
+                          size={16}
+                          className="group-hover:translate-x-1 transition-transform"
+                        />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  {/* Desktop Layout */}
+                  <div className="hidden md:flex items-center justify-between">
                     <div className="flex items-center space-x-6">
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
@@ -263,29 +307,29 @@ export default function ServicesPage() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-8 pb-8 pt-4 bg-gradient-to-r from-brand-neutral/20 to-transparent">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      <div className="px-4 md:px-8 pb-5 md:pb-8 pt-3 md:pt-4 bg-gradient-to-r from-brand-neutral/20 to-transparent">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                           {service.categories.map((category, catIndex) => (
                             <motion.div
                               key={category.name}
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: catIndex * 0.1 }}
-                              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
+                              className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
                             >
-                              <div className="flex items-center space-x-3 mb-4">
-                                <div className="w-10 h-10 bg-brand-green/10 rounded-lg flex items-center justify-center">
-                                  <category.icon className="w-5 h-5 text-brand-green" />
+                              <div className="flex items-center space-x-2 md:space-x-3 mb-3 md:mb-4">
+                                <div className="w-8 h-8 md:w-10 md:h-10 bg-brand-green/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                  <category.icon className="w-4 h-4 md:w-5 md:h-5 text-brand-green" />
                                 </div>
-                                <h4 className="font-semibold text-brand-black">
+                                <h4 className="font-semibold text-sm md:text-base text-brand-black">
                                   {category.name}
                                 </h4>
                               </div>
-                              <ul className="space-y-2">
+                              <ul className="space-y-1.5 md:space-y-2">
                                 {category.items.map((item, itemIndex) => (
                                   <li
                                     key={itemIndex}
-                                    className="flex items-start space-x-2 text-sm text-brand-gray"
+                                    className="flex items-start space-x-2 text-xs md:text-sm text-brand-gray"
                                   >
                                     <ChevronRight
                                       size={14}
@@ -314,17 +358,17 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-h2 font-bold mb-4">
+          <h2 className="text-3xl md:text-h2 font-bold mb-3 md:mb-4">
             Notre <span className="text-brand-green">Processus</span>
           </h2>
-          <p className="text-lg text-brand-neutral max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-brand-neutral max-w-2xl mx-auto px-4">
             Une approche méthodique pour garantir l'excellence
           </p>
         </motion.div>
 
-        <div className="grid grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {[
             {
               step: "01",
@@ -357,14 +401,15 @@ export default function ServicesPage() {
             >
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="w-16 h-16 mx-auto mb-6 bg-brand-green rounded-xl flex items-center justify-center text-2xl font-bold text-white shadow-lg group-hover:shadow-2xl transition-all duration-300"
+                whileTap={{ scale: 0.95 }}
+                className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 bg-brand-green rounded-xl flex items-center justify-center text-xl md:text-2xl font-bold text-white shadow-lg group-hover:shadow-2xl transition-all duration-300"
               >
                 {process.step}
               </motion.div>
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-brand-green transition-colors">
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 group-hover:text-brand-green transition-colors">
                 {process.title}
               </h3>
-              <p className="text-brand-neutral group-hover:text-white transition-colors">
+              <p className="text-sm md:text-base text-brand-neutral group-hover:text-white transition-colors px-2">
                 {process.description}
               </p>
             </motion.div>
