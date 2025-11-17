@@ -35,7 +35,7 @@ const services = [
         name: "Système Hydroponique",
         description:
           "Culture de plantes dans des solutions nutritives, sans sol. Rendements élevés et contrôle précis.",
-        image: "/images/services/cultures-hors-sol/hydroponique.jpg",
+        image: "/images/services/systeme-hydroponique-aeroponie.webp",
         benefits: [
           "Économie d'eau 90%",
           "Croissance 30% plus rapide",
@@ -52,7 +52,7 @@ const services = [
         name: "Système Aquaponique",
         description:
           "Combinaison de l'aquaculture et de l'hydroponie. Écosystème fermé et durable.",
-        image: "/images/services/cultures-hors-sol/aquaponique.jpg",
+        image: "/images/services/aquaponie-1024x574.webp",
         benefits: [
           "Double production",
           "Cycle fermé",
@@ -65,7 +65,7 @@ const services = [
         name: "Mur Végétal",
         description:
           "Solutions d'agriculture verticale pour optimiser l'espace et purifier l'air.",
-        image: "/images/services/cultures-hors-sol/mur-vegetal.jpg",
+        image: "/images/services/MurVegetal.webp",
         benefits: [
           "Gain d'espace",
           "Purification air",
@@ -78,7 +78,7 @@ const services = [
         name: "Bac Potager",
         description:
           "Jardins surélevés pour agriculture urbaine et éducation environnementale.",
-        image: "/images/services/cultures-hors-sol/bac-potager.jpg",
+        image: "/images/services/BacPotager.webp",
         benefits: [
           "Facile à entretenir",
           "Ergonomique",
@@ -101,6 +101,7 @@ const services = [
       {
         name: "Irrigation Goutte-à-Goutte",
         description: "Système de micro-irrigation précis et économe en eau.",
+        image: "/images/services/arrosage-plantes-legumes-dans-champ-irrigation-goutte-goutte-agrandi-ai-genere.webp",
         benefits: [
           "Économie 50% d'eau",
           "Précision maximale",
@@ -117,6 +118,7 @@ const services = [
         name: "Irrigation Intelligente",
         description:
           "Systèmes automatisés avec capteurs et contrôle à distance.",
+        image: "/images/services/IrrigationIntelligente.webp",
         benefits: [
           "Contrôle IoT",
           "Économie d'énergie",
@@ -132,6 +134,7 @@ const services = [
       {
         name: "Gestion des Ressources",
         description: "Audit et optimisation de l'usage hydrique global.",
+        image: "/images/services/GestiondesRessources.webp",
         benefits: [
           "Diagnostic complet",
           "Plan d'optimisation",
@@ -159,6 +162,7 @@ const services = [
         name: "Compostage Industriel",
         description:
           "Systèmes à grande échelle pour traitement de volumes importants.",
+        image: "/images/services/CompostageIndustriel.webp",
         benefits: [
           "Haute capacité",
           "Processus accéléré",
@@ -175,6 +179,7 @@ const services = [
         name: "Compostage Urbain",
         description:
           "Solutions adaptées aux environnements urbains et péri-urbains.",
+        image: "/images/services/CompostageUrbain.webp",
         benefits: ["Compact", "Sans odeurs", "Facile d'usage", "Éducatif"],
         applications: ["Restaurants", "Écoles", "Résidences", "Bureaux"],
       },
@@ -182,6 +187,7 @@ const services = [
         name: "Formation Compostage",
         description:
           "Programmes de formation pour maîtriser les techniques de compostage.",
+        image: "/images/services/FormationCompostage.webp",
         benefits: [
           "Expertise technique",
           "Certification",
@@ -210,6 +216,7 @@ const services = [
         name: "Étude de Marché",
         description:
           "Analyse approfondie des opportunités commerciales et de la concurrence.",
+        image: "/images/services/etudedeMarche.webp",
         benefits: [
           "Données fiables",
           "Analyse concurrentielle",
@@ -226,6 +233,7 @@ const services = [
         name: "Étude Technique",
         description:
           "Évaluation de faisabilité technique et spécifications détaillées.",
+        image: "/images/services/bureau-etude-technique.webp",
         benefits: [
           "Expertise pointue",
           "Solutions optimales",
@@ -238,6 +246,7 @@ const services = [
         name: "Étude de Faisabilité",
         description:
           "Analyse globale de viabilité économique et technique des projets.",
+        image: "/images/services/etudedeFaisabilite.webp",
         benefits: [
           "Vision globale",
           "ROI calculé",
@@ -253,6 +262,7 @@ const services = [
       {
         name: "Étude d'Impact",
         description: "Évaluation des impacts environnementaux et sociétaux.",
+        image: "/images/services/EtudedImpact.webp",
         benefits: [
           "Conformité réglementaire",
           "Durabilité",
@@ -488,7 +498,7 @@ export default function ComiteEtudesPage() {
                       </div>
                     </div>
 
-                    <div className="flex space-x-4">
+                    <div className="flex flex-wrap gap-4">
                       <Button variant="primary" className="group">
                         Demander un devis
                         <ArrowRight
@@ -496,29 +506,54 @@ export default function ComiteEtudesPage() {
                           className="group-hover:translate-x-1 transition-transform"
                         />
                       </Button>
-                      <Link
-                        href={
-                          activeService === "cultures-hors-sol"
-                            ? currentService.presentationLink
-                            : "#"
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Button variant="outline">
-                          En savoir plus
-                          <ExternalLink size={18} />
+                      {activeService === "cultures-hors-sol" ? (
+                        <Link
+                          href={currentService.presentationLink || "#"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button variant="outline" className="group">
+                            En savoir plus
+                            <ExternalLink
+                              size={18}
+                              className="group-hover:scale-110 transition-transform"
+                            />
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Button
+                          variant="outline"
+                          disabled
+                          className="opacity-50 cursor-not-allowed"
+                        >
+                          <span className="flex items-center space-x-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <span>Documentation bientôt disponible</span>
+                          </span>
                         </Button>
-                      </Link>
+                      )}
                     </div>
                   </div>
 
                   {/* Visual Content */}
-                  <div className="relative overflow-hidden rounded-r-3xl">
+                  <div className="relative overflow-hidden rounded-r-3xl min-h-[500px] lg:min-h-full">
                     <img
                       src={currentService.subServices[activeSubService].image}
                       alt={currentService.subServices[activeSubService].name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
                   </div>
