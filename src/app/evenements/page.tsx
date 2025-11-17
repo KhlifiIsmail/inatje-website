@@ -509,15 +509,16 @@ const FeaturedEventCard: React.FC = () => {
           className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 hover:shadow-3xl transition-shadow duration-500"
         >
           {/* Hero Banner */}
-          <div className="relative w-full h-[450px] overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800">
+          <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden bg-gray-900">
             <Image
               src={FEATURED_EVENT.bannerImage}
               alt={FEATURED_EVENT.title}
               fill
               className="object-cover object-center"
               priority
+              quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
             {/* Edition Badge */}
             <motion.div

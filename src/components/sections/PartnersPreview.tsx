@@ -34,9 +34,9 @@ export function PartnersPreview() {
         </p>
       </motion.div>
 
-      {/* Partner Logos Grid */}
+      {/* Partner Logos Grid - Desktop Only */}
       <div className="relative overflow-hidden">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+        <div className="hidden md:grid grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
           {partnerLogos.map((partner, index) => (
             <motion.div
               key={partner.name}
@@ -58,8 +58,8 @@ export function PartnersPreview() {
           ))}
         </div>
 
-        {/* Auto-scrolling carousel for mobile/smaller screens */}
-        <div className="md:hidden relative overflow-hidden">
+        {/* Auto-scrolling carousel for mobile - No Grayscale */}
+        <div className="md:hidden relative overflow-hidden mb-8">
           <motion.div
             animate={{ x: [0, -100 * partnerLogos.length] }}
             transition={{
@@ -79,7 +79,7 @@ export function PartnersPreview() {
                   alt={partner.name}
                   width={100}
                   height={60}
-                  className="object-contain max-w-full max-h-full grayscale"
+                  className="object-contain max-w-full max-h-full"
                 />
               </div>
             ))}
