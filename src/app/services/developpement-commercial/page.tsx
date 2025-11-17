@@ -57,12 +57,12 @@ const forumFeatures = [
     icon: Award,
     title: "Competiton INAT JEnovate",
     description:
-      "Sessions spécialisées pour améliorer les compétences et la préparation professionnelle.",
+      "Competition de pitch entre des porteurs de projets de diffrents ecoles et instituts .",
     benefits: [
-      "CV optimisé",
-      "Techniques d'entretien",
-      "Soft skills",
-      "Personal branding",
+      "Recompense pour les vainquers",
+      "Opportunite de pitch et presentation",
+      "Encouragement des jeunes porteurs de projets",
+      "Visibilite specialise",
     ],
   },
   {
