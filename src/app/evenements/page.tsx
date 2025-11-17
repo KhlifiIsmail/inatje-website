@@ -176,15 +176,16 @@ const EVENT_HIGHLIGHTS: EventHighlight[] = [
     ],
   },
   {
-    title: "Ateliers de Formation",
+    title: "Competiton INAT JEnovate",
     description:
-      "Développez vos compétences techniques et soft skills grâce à des sessions pratiques animées par des experts",
+      "Competition de pitch entre des porteurs de projets de diffrents ecoles et instituts.",
     icon: GraduationCap,
     gradient: "from-purple-500 via-purple-600 to-indigo-600",
     features: [
-      "Rédaction de CV et lettre de motivation",
-      "Techniques d'entretien d'embauche",
-      "Personal branding sur LinkedIn",
+      "Recompense pour les vainquers",
+      "Opportunite de pitch et presentation",
+      "Encouragement des jeunes porteurs de projets",
+      "Visibilite specialise",
     ],
   },
   {
@@ -716,7 +717,8 @@ const EventHighlightsSection: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-brand-gray max-w-2xl mx-auto">
-            Une expérience complète pour maximiser votre réussite professionnelle
+            Une expérience complète pour maximiser votre réussite
+            professionnelle
           </p>
         </motion.div>
 
@@ -814,8 +816,7 @@ const EventTimelineSection: React.FC = () => {
             </span>
           </div>
           <h2 className="text-4xl md:text-6xl font-heading font-bold mb-4">
-            Planning de la{" "}
-            <span className="text-brand-green">Journée</span>
+            Planning de la <span className="text-brand-green">Journée</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Un agenda soigneusement conçu pour optimiser vos opportunités
@@ -896,14 +897,16 @@ const EventTimelineSection: React.FC = () => {
               {/* Header */}
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${getTimelineColor(event.type)}`} />
+                  <div
+                    className={`w-2 h-2 rounded-full bg-gradient-to-r ${getTimelineColor(
+                      event.type
+                    )}`}
+                  />
                   <span className="text-lg font-bold text-brand-green">
                     {event.time}
                   </span>
                 </div>
-                <span className="text-2xl">
-                  {getTimelineIcon(event.type)}
-                </span>
+                <span className="text-2xl">{getTimelineIcon(event.type)}</span>
               </div>
 
               {/* Content */}
@@ -946,7 +949,8 @@ const PastEventsSection: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-brand-gray max-w-2xl mx-auto">
-            Trois années d'excellence et d'innovation dans le networking agricole
+            Trois années d'excellence et d'innovation dans le networking
+            agricole
           </p>
         </motion.div>
 
@@ -1006,7 +1010,9 @@ const PastEventsSection: React.FC = () => {
                     <p className="text-2xl font-bold text-brand-green">
                       {event.satisfactionRate}
                     </p>
-                    <p className="text-xs text-emerald-700 mt-1">Satisfaction</p>
+                    <p className="text-xs text-emerald-700 mt-1">
+                      Satisfaction
+                    </p>
                   </div>
                 </div>
 
