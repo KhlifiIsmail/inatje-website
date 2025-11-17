@@ -169,27 +169,27 @@ export default function DeveloppementCommercialPage() {
           />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
           >
             {/* Event Badge */}
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: "spring" }}
-              className="inline-flex items-center space-x-2 px-6 py-3 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full shadow-lg"
+              className="inline-flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full shadow-lg"
             >
-              <Calendar size={20} className="text-blue-400" />
-              <span className="text-blue-400 font-semibold">
+              <Calendar size={18} className="text-blue-400" />
+              <span className="text-sm md:text-base text-blue-400 font-semibold">
                 10 Décembre 2025
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-7xl font-heading font-bold text-white leading-tight px-2">
               Forum d'Emploi{" "}
               <span className="bg-gradient-to-r from-brand-green to-blue-400 bg-clip-text text-transparent">
                 & de Stages
@@ -197,7 +197,7 @@ export default function DeveloppementCommercialPage() {
               2025
             </h1>
 
-            <p className="text-xl md:text-2xl text-brand-neutral max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-2xl text-brand-neutral max-w-4xl mx-auto leading-relaxed px-4">
               Ce rendez-vous incontournable permet aux futurs ingénieurs
               agronomes et aux jeunes diplômés de rencontrer des entreprises
               prestigieuses
@@ -208,9 +208,13 @@ export default function DeveloppementCommercialPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 px-4"
             >
-              <Button variant="primary" size="lg" className="group shadow-2xl">
+              <Button
+                variant="primary"
+                size="lg"
+                className="group shadow-2xl w-full sm:w-auto"
+              >
                 S'inscrire maintenant
                 <ArrowRight
                   size={20}
@@ -220,7 +224,7 @@ export default function DeveloppementCommercialPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/30 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm"
+                className="border-white/30 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm w-full sm:w-auto"
               >
                 Télécharger le programme
                 <ExternalLink size={20} />
@@ -232,7 +236,7 @@ export default function DeveloppementCommercialPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-12 md:mt-16 px-4"
             >
               {forumStats.map((stat, index) => (
                 <motion.div
@@ -242,13 +246,15 @@ export default function DeveloppementCommercialPage() {
                   transition={{ delay: 1.2 + index * 0.1, type: "spring" }}
                   className="text-center"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
-                    <stat.icon className="w-8 h-8 text-brand-green" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                    <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-green" />
                   </div>
-                  <div className="text-3xl font-bold text-brand-green mb-1">
+                  <div className="text-2xl md:text-3xl font-bold text-brand-green mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-brand-neutral">{stat.label}</div>
+                  <div className="text-xs md:text-sm text-brand-neutral">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -379,7 +385,48 @@ export default function DeveloppementCommercialPage() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        {/* Mobile Timeline - Card Style */}
+        <div className="md:hidden space-y-4 px-4">
+          {timeline2025.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="bg-white rounded-2xl p-5 shadow-lg border border-gray-100"
+            >
+              {/* Time Badge */}
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div
+                    className={`w-2 h-2 rounded-full bg-gradient-to-r ${getTypeColor(
+                      item.type
+                    )}`}
+                  />
+                  <span className="text-lg font-bold text-brand-green">
+                    {item.time}
+                  </span>
+                </div>
+                <span
+                  className={`px-3 py-1 bg-gradient-to-r ${getTypeColor(
+                    item.type
+                  )} text-white text-xs font-medium rounded-full`}
+                >
+                  {item.type}
+                </span>
+              </div>
+
+              {/* Activity */}
+              <h3 className="text-base font-semibold text-brand-black leading-snug">
+                {item.activity}
+              </h3>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop Timeline - Original Style */}
+        <div className="hidden md:block max-w-4xl mx-auto">
           {timeline2025.map((item, index) => (
             <motion.div
               key={index}

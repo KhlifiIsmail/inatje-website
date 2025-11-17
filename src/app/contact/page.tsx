@@ -182,14 +182,14 @@ export default function ContactPage() {
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-7xl font-heading font-bold text-white leading-tight px-2">
               Parlons de Votre{" "}
               <span className="bg-gradient-to-r from-brand-green to-emerald-400 bg-clip-text text-transparent">
                 Projet
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-brand-neutral max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-2xl text-brand-neutral max-w-4xl mx-auto leading-relaxed px-4">
               Notre équipe est là pour vous accompagner dans tous vos projets
               agronomiques
             </p>
@@ -198,38 +198,38 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16 px-4"
             >
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
-                  <CheckCircle className="w-8 h-8 text-brand-green" />
+                <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                  <CheckCircle className="w-6 h-6 md:w-8 md:h-8 text-brand-green" />
                 </div>
-                <div className="text-lg font-semibold text-white mb-1">
+                <div className="text-base md:text-lg font-semibold text-white mb-1">
                   Réponse Rapide
                 </div>
-                <div className="text-sm text-brand-neutral">Sous 24-48h</div>
+                <div className="text-xs md:text-sm text-brand-neutral">Sous 24-48h</div>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
-                  <User className="w-8 h-8 text-brand-green" />
+                <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                  <User className="w-6 h-6 md:w-8 md:h-8 text-brand-green" />
                 </div>
-                <div className="text-lg font-semibold text-white mb-1">
+                <div className="text-base md:text-lg font-semibold text-white mb-1">
                   Experts Qualifiés
                 </div>
-                <div className="text-sm text-brand-neutral">
+                <div className="text-xs md:text-sm text-brand-neutral">
                   13 ans d'expérience
                 </div>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
-                  <Building className="w-8 h-8 text-brand-green" />
+                <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                  <Building className="w-6 h-6 md:w-8 md:h-8 text-brand-green" />
                 </div>
-                <div className="text-lg font-semibold text-white mb-1">
+                <div className="text-base md:text-lg font-semibold text-white mb-1">
                   Solutions Sur Mesure
                 </div>
-                <div className="text-sm text-brand-neutral">
+                <div className="text-xs md:text-sm text-brand-neutral">
                   Adaptées à vos besoins
                 </div>
               </div>
