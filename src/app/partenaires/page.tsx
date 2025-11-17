@@ -518,12 +518,12 @@ export default function PartenairesPage() {
 
         {/* Carousel Container */}
         <div className="relative">
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Hidden on Mobile */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => scrollCarousel("left")}
-            className="absolute left-0 top-[40%] transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
+            className="hidden md:flex absolute left-0 top-[40%] transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
           >
             <ArrowLeft size={20} />
           </motion.button>
@@ -532,7 +532,7 @@ export default function PartenairesPage() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => scrollCarousel("right")}
-            className="absolute right-0 top-[40%] transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
+            className="hidden md:flex absolute right-0 top-[40%] transform -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-brand-green hover:bg-brand-green hover:text-white transition-all duration-300"
           >
             <ArrowRight size={20} />
           </motion.button>
@@ -540,7 +540,7 @@ export default function PartenairesPage() {
           {/* Carousel */}
           <div
             ref={carouselRef}
-            className="flex overflow-x-auto scrollbar-hide space-x-8 py-8 px-16"
+            className="flex overflow-x-auto scrollbar-hide space-x-4 md:space-x-8 py-8 px-4 md:px-16"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             onMouseEnter={() =>
               carouselRef.current?.style.setProperty(

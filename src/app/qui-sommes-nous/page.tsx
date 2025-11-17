@@ -287,28 +287,28 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                className={`flex items-center mb-16 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                }`}
+                className={`flex items-center mb-12 md:mb-16 ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } flex-row`}
               >
-                <div className="w-1/2 pr-8 pl-8">
+                <div className="w-1/2 pr-4 pl-4 md:pr-8 md:pl-8">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 ${
-                      index % 2 === 0 ? "text-right" : "text-left"
-                    }`}
+                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 ${
+                      index % 2 === 0 ? "md:text-right" : "md:text-left"
+                    } text-left`}
                   >
-                    <div className="text-3xl font-bold text-brand-green mb-2">
+                    <div className="text-2xl md:text-3xl font-bold text-brand-green mb-2">
                       {item.year}
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{item.event}</h3>
-                    <p className="text-brand-neutral">{item.description}</p>
+                    <h3 className="text-base md:text-xl font-semibold mb-2 md:mb-3">{item.event}</h3>
+                    <p className="text-sm md:text-base text-brand-neutral">{item.description}</p>
                   </motion.div>
                 </div>
 
                 <motion.div
                   whileHover={{ scale: 1.2 }}
-                  className="w-6 h-6 bg-brand-green rounded-full border-4 border-white shadow-lg z-10"
+                  className="w-4 h-4 md:w-6 md:h-6 bg-brand-green rounded-full border-2 md:border-4 border-white shadow-lg z-10 flex-shrink-0"
                 />
 
                 <div className="w-1/2"></div>
