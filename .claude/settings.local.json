@@ -4,7 +4,8 @@
       "Bash(claude:*)",
       "Bash(npm update:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(copy \"c:\\Users\\ikhli\\Downloads\\googlefd0f215ef2c69bb4.html\" \"C:\\Users\\ikhli\\Desktop\\My Desk\\WORK\\PersonalProject\\inat-je-website\\public\\googlefd0f215ef2c69bb4.html\")"
     ],
     "deny": [],
     "ask": []
