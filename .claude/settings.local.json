@@ -5,7 +5,10 @@
       "Bash(npm update:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(copy \"c:\\Users\\ikhli\\Downloads\\googlefd0f215ef2c69bb4.html\" \"C:\\Users\\ikhli\\Desktop\\My Desk\\WORK\\PersonalProject\\inat-je-website\\public\\googlefd0f215ef2c69bb4.html\")"
+      "Bash(copy \"c:\\Users\\ikhli\\Downloads\\googlefd0f215ef2c69bb4.html\" \"C:\\Users\\ikhli\\Desktop\\My Desk\\WORK\\PersonalProject\\inat-je-website\\public\\googlefd0f215ef2c69bb4.html\")",
+      "Bash(taskkill:*)",
+      "Bash(nul)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []
