@@ -14,6 +14,7 @@ import {
   Users,
   ChevronDown,
   ChevronRight,
+  Megaphone,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
@@ -88,6 +89,35 @@ const mainServices = [
           "Opportunités de stages",
           "Recrutement direct",
           "Ateliers de formation",
+        ],
+      },
+    ],
+  },
+  {
+    id: "comite-marketing",
+    title: "Comité Marketing",
+    subtitle: "Communication digitale et présence terrain",
+    icon: Megaphone,
+    description:
+      "Stratégie marketing intégrée combinant présence digitale et actions terrain pour maximiser notre visibilité.",
+    gradient: "from-purple-600 to-brand-green",
+    href: "/services/comite-marketing",
+    categories: [
+      {
+        name: "Marketing Online",
+        icon: Megaphone,
+        items: [
+          "Réseaux sociaux",
+          "Site Web",
+          "Articles et newsletter",
+        ],
+      },
+      {
+        name: "Marketing Offline",
+        icon: Users,
+        items: [
+          "Passages médiatiques",
+          "Événements et foires",
         ],
       },
     ],

@@ -29,6 +29,12 @@ const navItems = [
         description: "Forum d'emploi et opportunités professionnelles",
         icon: "🤝",
       },
+      {
+        name: "Comité Marketing",
+        href: "/services/comite-marketing",
+        description: "Communication digitale et présence terrain",
+        icon: "📢",
+      },
     ],
   },
   { name: "Partenaires", href: "/partenaires" },

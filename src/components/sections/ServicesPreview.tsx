@@ -3,8 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { Sprout, Droplets, Recycle, FileText, ArrowRight } from "lucide-react";
-import { Calendar } from "lucide-react";
+import { Sprout, Droplets, Recycle, FileText, ArrowRight, Calendar, Megaphone } from "lucide-react";
 import Link from "next/link";
 
 const services = [
@@ -14,6 +13,13 @@ const services = [
     description:
       "Événement annuel de networking reliant étudiants agronomes et entreprises pour des opportunités de stages et d'emplois.",
     href: "/services/developpement-commercial",
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing & Communication",
+    description:
+      "Stratégie marketing intégrée combinant présence digitale, réseaux sociaux et actions terrain pour maximiser notre impact.",
+    href: "/services/comite-marketing",
   },
   {
     icon: Sprout,
