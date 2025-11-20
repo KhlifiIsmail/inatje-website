@@ -17,7 +17,7 @@ import {
   Building,
   MessageSquare,
 } from "lucide-react";
-// import Image from 'next/image';
+import Image from 'next/image';
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -456,20 +456,23 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            {/* Contact Image Placeholder */}
+            {/* Team Image */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <div className="aspect-[4/3] bg-gradient-to-br from-brand-green to-emerald-600 flex items-center justify-center">
-                <div className="text-center text-white p-8">
-                  <Building size={80} className="mx-auto mb-4 opacity-30" />
-                  <p className="text-lg opacity-80">
-                    [PLACEHOLDER: Contact Image]
-                  </p>
-                  <p className="text-sm opacity-60 mt-2">
-                    Provided photo on right side of contact section
-                  </p>
-                </div>
+              <Image
+                src="/images/team/team.png"
+                alt="INAT Junior Entreprise Team"
+                width={800}
+                height={600}
+                className="w-full h-full object-cover aspect-[4/3]"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <h3 className="text-2xl font-bold mb-2">Notre Équipe</h3>
+                <p className="text-sm opacity-90">
+                  Une équipe dynamique et passionnée à votre service
+                </p>
               </div>
-              <div className="absolute inset-0 bg-black/20"></div>
             </div>
 
             {/* Contact Information Cards */}
@@ -576,24 +579,24 @@ export default function ContactPage() {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Map Placeholder */}
+          {/* Google Maps */}
           <div className="lg:col-span-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-gray-200 rounded-3xl aspect-[16/10] flex items-center justify-center shadow-xl"
+              className="rounded-3xl overflow-hidden shadow-xl"
             >
-              <div className="text-center text-gray-600">
-                <MapPin size={64} className="mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">
-                  Carte Google Maps
-                </h3>
-                <p className="text-sm">Intégration de la carte Google Maps</p>
-                <p className="text-xs mt-2 text-brand-green">
-                  INAT Campus Location
-                </p>
-              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.5366891891986!2d10.182779776550425!3d36.83537886618746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34d55e7d3a97%3A0x764f86ea3f8b9b0a!2sInstitut%20National%20Agronomique%20de%20Tunisie!5e0!3m2!1sen!2stn!4v1710000000000!5m2!1sen!2stn"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: '500px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="aspect-[16/10]"
+              />
             </motion.div>
           </div>
 
@@ -658,13 +661,20 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Button variant="outline" size="lg" className="w-full group">
-                Obtenir l'itinéraire
-                <MapPin
-                  size={20}
-                  className="group-hover:scale-110 transition-transform"
-                />
-              </Button>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Institut+National+Agronomique+de+Tunisie,43+Avenue+Charles+Nicolle,Tunis,Tunisia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button variant="outline" size="lg" className="w-full group">
+                  Obtenir l'itinéraire
+                  <MapPin
+                    size={20}
+                    className="group-hover:scale-110 transition-transform"
+                  />
+                </Button>
+              </a>
             </motion.div>
           </div>
         </div>
