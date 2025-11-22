@@ -155,7 +155,7 @@ export default function DeveloppementCommercialPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-blue-900/20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-blue-900/20 overflow-hidden pt-40 md:pt-40 lg:pt-32">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <motion.div

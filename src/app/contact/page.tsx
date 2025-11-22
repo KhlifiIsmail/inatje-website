@@ -140,7 +140,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-emerald-900/20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-darkgray via-brand-black to-emerald-900/20 overflow-hidden pt-32 md:pt-32 lg:pt-24">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <motion.div
