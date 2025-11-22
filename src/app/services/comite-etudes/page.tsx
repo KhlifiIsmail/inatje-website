@@ -36,7 +36,8 @@ const services = [
         name: "Système Hydroponique",
         description:
           "Culture de plantes dans des solutions nutritives, sans sol. Rendements élevés et contrôle précis.",
-        image: "/images/services/systeme-hydroponique-aeroponie.webp",
+        image:
+          "/images/services/culture-hydroponie-hors-sol-jardin-interieur.jpg",
         benefits: [
           "Économie d'eau 90%",
           "Croissance 30% plus rapide",
@@ -354,7 +355,9 @@ export default function ComiteEtudesPage() {
             <div className="relative">
               <motion.button
                 onClick={() => {
-                  const currentIndex = services.findIndex(s => s.id === activeService);
+                  const currentIndex = services.findIndex(
+                    (s) => s.id === activeService
+                  );
                   const nextIndex = (currentIndex + 1) % services.length;
                   setActiveService(services[nextIndex].id);
                   setActiveSubService(0);
@@ -364,22 +367,25 @@ export default function ComiteEtudesPage() {
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-white/20 rounded-xl">
-                    {React.createElement(services.find(s => s.id === activeService)?.icon || Sprout, {
-                      size: 18,
-                      className: "text-white"
-                    })}
+                    {React.createElement(
+                      services.find((s) => s.id === activeService)?.icon ||
+                        Sprout,
+                      {
+                        size: 18,
+                        className: "text-white",
+                      }
+                    )}
                   </div>
                   <div className="text-left">
-                    <div className="text-xs font-medium opacity-80">Service</div>
+                    <div className="text-xs font-medium opacity-80">
+                      Service
+                    </div>
                     <div className="text-sm font-bold">
-                      {services.find(s => s.id === activeService)?.title}
+                      {services.find((s) => s.id === activeService)?.title}
                     </div>
                   </div>
                 </div>
-                <motion.div
-                  animate={{ rotate: 90 }}
-                  className="text-white/80"
-                >
+                <motion.div animate={{ rotate: 90 }} className="text-white/80">
                   <ArrowRight size={20} />
                 </motion.div>
               </motion.button>
@@ -426,12 +432,21 @@ export default function ComiteEtudesPage() {
                     : "bg-white text-brand-darkgray hover:bg-gray-50 hover:shadow-lg"
                 }`}
               >
-                <div className={`p-2 rounded-xl transition-all duration-300 ${
-                  activeService === service.id
-                    ? "bg-white/20"
-                    : "bg-brand-green/10 group-hover:bg-brand-green/20"
-                }`}>
-                  <service.icon size={18} className={activeService === service.id ? "text-white" : "text-brand-green"} />
+                <div
+                  className={`p-2 rounded-xl transition-all duration-300 ${
+                    activeService === service.id
+                      ? "bg-white/20"
+                      : "bg-brand-green/10 group-hover:bg-brand-green/20"
+                  }`}
+                >
+                  <service.icon
+                    size={18}
+                    className={
+                      activeService === service.id
+                        ? "text-white"
+                        : "text-brand-green"
+                    }
+                  />
                 </div>
                 <span>{service.title}</span>
                 {activeService === service.id && (
@@ -546,7 +561,9 @@ export default function ComiteEtudesPage() {
                               size={14}
                               className="text-brand-green flex-shrink-0"
                             />
-                            <span className="text-xs md:text-sm">{benefit}</span>
+                            <span className="text-xs md:text-sm">
+                              {benefit}
+                            </span>
                           </motion.div>
                         ))}
                       </div>
@@ -575,7 +592,11 @@ export default function ComiteEtudesPage() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                      <Button variant="primary" size="md" className="group w-full sm:w-auto">
+                      <Button
+                        variant="primary"
+                        size="md"
+                        className="group w-full sm:w-auto"
+                      >
                         Demander un devis
                         <ArrowRight
                           size={18}
@@ -589,7 +610,11 @@ export default function ComiteEtudesPage() {
                           rel="noopener noreferrer"
                           className="w-full sm:w-auto"
                         >
-                          <Button variant="outline" size="md" className="group w-full">
+                          <Button
+                            variant="outline"
+                            size="md"
+                            className="group w-full"
+                          >
                             En savoir plus
                             <ExternalLink
                               size={18}
@@ -626,8 +651,12 @@ export default function ComiteEtudesPage() {
                               ></rect>
                               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
-                            <span className="hidden md:inline">Documentation bientôt disponible</span>
-                            <span className="md:hidden">Bientôt disponible</span>
+                            <span className="hidden md:inline">
+                              Documentation bientôt disponible
+                            </span>
+                            <span className="md:hidden">
+                              Bientôt disponible
+                            </span>
                           </span>
                         </Button>
                       )}
@@ -669,18 +698,25 @@ export default function ComiteEtudesPage() {
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-green/20">
             <FileText size={48} className="mx-auto mb-4 text-brand-green" />
             <h3 className="text-xl font-semibold mb-4">
-              Présentation Technique Complète
+              Manuel de Prestations
             </h3>
             <p className="text-brand-gray mb-6">
-              [PLACEHOLDER: Link to presentation with technical details]
+              Téléchargez notre manuel complet détaillant toutes nos prestations
+              de services et spécifications techniques
             </p>
-            <Button variant="primary" className="group">
-              Télécharger la documentation
-              <ExternalLink
-                size={18}
-                className="group-hover:scale-110 transition-transform"
-              />
-            </Button>
+            <a
+              href="/pdf/Manuel de prestations .pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="primary" className="group">
+                Télécharger le manuel
+                <ExternalLink
+                  size={18}
+                  className="group-hover:scale-110 transition-transform"
+                />
+              </Button>
+            </a>
           </div>
         </motion.div>
       </section>

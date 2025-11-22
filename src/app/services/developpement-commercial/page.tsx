@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Users,
   Calendar,
@@ -81,40 +82,48 @@ const forumFeatures = [
 
 const timeline2025 = [
   {
-    time: "09h00-09h30",
-    activity: "Accueil & Inscription",
-    type: "logistique",
-  },
-  { time: "09h30-10h00", activity: "Cérémonie d'Ouverture", type: "officiel" },
-  {
-    time: "10h00-12h00",
-    activity: "Sessions Networking - Première Phase",
+    time: "08h00-17h00",
+    activity: "Salle d'exposition",
     type: "networking",
   },
   {
-    time: "12h00-13h30",
-    activity: "Pause Déjeuner & Networking Informel",
-    type: "pause",
+    time: "08h30",
+    activity: "Mot d'ouverture",
+    type: "officiel",
   },
   {
-    time: "13h30-15h00",
-    activity: "Ateliers de Formation Parallèles",
-    type: "formation",
-  },
-  { time: "15h00-15h30", activity: "Pause-Café & Échanges", type: "pause" },
-  {
-    time: "15h30-17h00",
-    activity: "Sessions Recrutement - Entretiens",
-    type: "recrutement",
-  },
-  {
-    time: "17h00-18h00",
-    activity: "Panel: Avenir de l'Agriculture Durable",
+    time: "09h00",
+    activity: "Panel 1 - 3 intervenants",
     type: "conference",
   },
   {
-    time: "18h00-18h30",
-    activity: "Clôture & Networking Final",
+    time: "10h30",
+    activity: "Pause-café",
+    type: "pause",
+  },
+  {
+    time: "11h00",
+    activity: "Panel 2",
+    type: "conference",
+  },
+  {
+    time: "12h00",
+    activity: "Pause-déjeuner",
+    type: "pause",
+  },
+  {
+    time: "13h30",
+    activity: "Compétition INAT JEnovate",
+    type: "formation",
+  },
+  {
+    time: "15h30",
+    activity: "Délibération des lauréats",
+    type: "recrutement",
+  },
+  {
+    time: "16h00",
+    activity: "Cérémonie de clôture",
     type: "cloture",
   },
 ];
@@ -559,25 +568,25 @@ export default function DeveloppementCommercialPage() {
             Plus d'<span className="text-brand-green">Informations</span>
           </h2>
           <p className="text-lg text-brand-neutral mb-8">
-            Découvrez tous les détails de l'événement dans notre présentation
-            complète
+            Découvrez tous les détails de l'événement sur notre page événements
           </p>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <ExternalLink size={48} className="mx-auto mb-4 text-brand-green" />
-            <h3 className="text-xl font-semibold mb-4">
-              Présentation Complète
-            </h3>
+            <Calendar size={48} className="mx-auto mb-4 text-brand-green" />
+            <h3 className="text-xl font-semibold mb-4">Page Événements</h3>
             <p className="text-brand-neutral mb-6">
-              [PLACEHOLDER: Link to Canva presentation]
+              Consultez le programme détaillé, les éditions passées et toutes
+              les informations sur le forum
             </p>
-            <Button variant="primary" className="group">
-              Voir la présentation détaillée
-              <ExternalLink
-                size={18}
-                className="group-hover:scale-110 transition-transform"
-              />
-            </Button>
+            <Link href="/evenements">
+              <Button variant="primary" className="group">
+                Voir la page événements
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </section>

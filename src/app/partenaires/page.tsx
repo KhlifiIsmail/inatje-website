@@ -12,6 +12,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -576,7 +577,6 @@ export default function PartenairesPage() {
             ))}
           </div>
         </div>
-
       </section>
 
       {/* Partnership Benefits */}
@@ -641,21 +641,23 @@ export default function PartenairesPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="primary" size="lg" className="group shadow-2xl">
-              Devenir partenaire
-              <Handshake
-                size={20}
-                className="group-hover:scale-110 transition-transform"
-              />
-            </Button>
-            <Button
+            <Link href="/contact">
+              <Button variant="primary" size="lg" className="group shadow-2xl">
+                Devenir partenaire
+                <Handshake
+                  size={20}
+                  className="group-hover:scale-110 transition-transform"
+                />
+              </Button>
+            </Link>
+            {/* <Button
               variant="outline"
               size="lg"
               className="border-white/30 text-white hover:bg-white hover:text-brand-black backdrop-blur-sm"
             >
               Télécharger la brochure
               <ExternalLink size={20} />
-            </Button>
+            </Button> */}
           </div>
 
           {/* Contact Info */}

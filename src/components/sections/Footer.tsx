@@ -27,7 +27,10 @@ const services = [
   },
   { name: "Système d'Irrigation", href: "/services/comite-etudes#irrigation" },
   { name: "Études et Conseil", href: "/services/comite-etudes#etudes" },
-  { name: "Forum Emploi", href: "/services/developpement-commercial" },
+  {
+    name: "Forum Emploi et de stage",
+    href: "/services/developpement-commercial",
+  },
 ];
 
 const socialLinks = [

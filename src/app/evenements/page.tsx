@@ -20,6 +20,13 @@ import {
   Sparkles,
   Target,
   Heart,
+  Mic,
+  Network,
+  Coffee,
+  Lightbulb,
+  UserCheck,
+  Trophy,
+  Store,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
@@ -216,51 +223,58 @@ const EVENT_HIGHLIGHTS: EventHighlight[] = [
 
 const EVENT_SCHEDULE: TimelineEvent[] = [
   {
-    time: "09h00",
-    title: "Accueil & Enregistrement",
-    description: "Réception des participants et distribution des badges",
-    type: "registration",
+    time: "08h00-17h00",
+    title: "Salle d'exposition",
+    description:
+      "Rencontres avec les entreprises exposantes tout au long de la journée",
+    type: "networking",
   },
   {
-    time: "09h30",
-    title: "Cérémonie d'Ouverture",
+    time: "08h30",
+    title: "Mot d'ouverture",
     description: "Discours d'ouverture et présentation du programme",
     type: "ceremony",
   },
   {
-    time: "10h00",
-    title: "Sessions de Networking",
-    description: "Rencontres libres avec les entreprises exposantes",
-    type: "networking",
+    time: "09h00",
+    title: "Panel 1 - 3 intervenants",
+    description: "Première table ronde avec trois experts du secteur",
+    type: "panel",
+  },
+  {
+    time: "10h30",
+    title: "Pause-café",
+    description: "Pause networking et échanges informels",
+    type: "break",
+  },
+  {
+    time: "11h00",
+    title: "Panel 2",
+    description: "Deuxième table ronde sur des thématiques clés",
+    type: "panel",
   },
   {
     time: "12h00",
-    title: "Pause Déjeuner",
-    description: "Déjeuner networking et échanges informels",
+    title: "Pause-déjeuner",
+    description: "Déjeuner networking",
     type: "break",
   },
   {
     time: "13h30",
-    title: "Ateliers de Formation",
-    description: "Sessions pratiques sur le développement professionnel",
+    title: "Compétition INAT JEnovate",
+    description: "Pitchs des porteurs de projets",
     type: "workshop",
   },
   {
     time: "15h30",
-    title: "Entretiens de Recrutement",
-    description: "Entretiens individuels avec les recruteurs",
+    title: "Délibération des lauréats",
+    description: "Annonce des gagnants de la compétition",
     type: "interview",
   },
   {
-    time: "17h00",
-    title: "Panel d'Experts",
-    description: "Table ronde sur l'avenir de l'agriculture durable",
-    type: "panel",
-  },
-  {
-    time: "18h00",
-    title: "Clôture & Networking Final",
-    description: "Derniers échanges et remise des certificats",
+    time: "16h00",
+    title: "Cérémonie de clôture",
+    description: "Remise des prix et clôture officielle",
     type: "closing",
   },
 ];
@@ -271,10 +285,10 @@ const PAST_EDITIONS: PastEvent[] = [
     edition: "12ème Édition",
     participants: "600+",
     companies: "40",
-    satisfactionRate: "85%",
+    satisfactionRate: "90%",
     theme: "Agriculture Résiliente",
     keyHighlights: [
-      "Premier forum post-COVID en présentiel",
+      "Record de nombre des entreprises présentes",
       "Record de participation étudiante",
       "Nouveau format hybride intégré",
     ],
@@ -284,7 +298,7 @@ const PAST_EDITIONS: PastEvent[] = [
     edition: "11ème Édition",
     participants: "580+",
     companies: "38",
-    satisfactionRate: "80%",
+    satisfactionRate: "85%",
     theme: "Agriculture Durable",
     keyHighlights: [
       "Focus sur l'innovation technologique",
@@ -297,7 +311,7 @@ const PAST_EDITIONS: PastEvent[] = [
     edition: "10ème Édition",
     participants: "550+",
     companies: "35",
-    satisfactionRate: "85%",
+    satisfactionRate: "80%",
     theme: "Digital Agriculture",
     keyHighlights: [
       "Première édition 100% digitale",
@@ -325,16 +339,16 @@ const getTimelineColor = (type: TimelineEventType): string => {
   return colorMap[type];
 };
 
-const getTimelineIcon = (type: TimelineEventType): string => {
-  const iconMap: Record<TimelineEventType, string> = {
-    registration: "🎫",
-    ceremony: "🎤",
-    networking: "🤝",
-    break: "☕",
-    workshop: "📚",
-    interview: "💼",
-    panel: "🎯",
-    closing: "🎊",
+const getTimelineIcon = (type: TimelineEventType): React.ElementType => {
+  const iconMap: Record<TimelineEventType, React.ElementType> = {
+    registration: Store,
+    ceremony: Mic,
+    networking: Store,
+    break: Coffee,
+    workshop: Lightbulb,
+    interview: UserCheck,
+    panel: Users,
+    closing: Trophy,
   };
   return iconMap[type];
 };
@@ -864,9 +878,11 @@ const EventTimelineSection: React.FC = () => {
                     className="flex-1 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 group-hover:border-brand-green/50 group-hover:bg-white/10 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
-                      <span className="text-3xl flex-shrink-0">
-                        {getTimelineIcon(event.type)}
-                      </span>
+                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-brand-green/20 to-emerald-500/20 rounded-lg flex items-center justify-center">
+                        {React.createElement(getTimelineIcon(event.type), {
+                          className: "w-6 h-6 text-brand-green",
+                        })}
+                      </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-white mb-2 group-hover:text-brand-green transition-colors">
                           {event.title}
@@ -906,7 +922,11 @@ const EventTimelineSection: React.FC = () => {
                     {event.time}
                   </span>
                 </div>
-                <span className="text-2xl">{getTimelineIcon(event.type)}</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-brand-green/20 to-emerald-500/20 rounded-lg flex items-center justify-center">
+                  {React.createElement(getTimelineIcon(event.type), {
+                    className: "w-5 h-5 text-brand-green",
+                  })}
+                </div>
               </div>
 
               {/* Content */}
