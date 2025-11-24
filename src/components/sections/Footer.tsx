@@ -196,10 +196,24 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-          <p className="text-brand-neutral text-sm">
-            © {new Date().getFullYear()} INAT Junior Entreprise. Tous droits
-            réservés.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 text-brand-neutral text-sm">
+            <p>
+              © {new Date().getFullYear()} INAT Junior Entreprise. Tous droits
+              réservés.
+            </p>
+            <span className="hidden sm:inline">•</span>
+            <p>
+              Développé par{" "}
+              <a
+                href="https://www.linkedin.com/in/ismail-khlifi-72999023a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-green hover:text-brand-lightgreen transition-colors duration-300 font-medium"
+              >
+                Ismail Khlifi
+              </a>
+            </p>
+          </div>
 
           {/* Back to Top Button */}
           <motion.button
