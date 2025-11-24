@@ -17,8 +17,9 @@ import {
   GraduationCap,
   Clock,
   Star,
+  Camera,
 } from "lucide-react";
-// import Image from 'next/image';
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -487,34 +488,94 @@ export default function DeveloppementCommercialPage() {
         </div>
       </section>
 
-      {/* Photo Gallery Placeholder */}
-      <section className="section-container">
+      {/* Photo Gallery Section */}
+      <section className="section-container bg-gradient-to-br from-slate-50 to-white">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#DAA520]/10 rounded-full mb-4">
+            <Camera className="w-4 h-4 text-[#DAA520]" />
+            <span className="text-sm font-semibold text-[#DAA520]">
+              Aperçu de nos Forums
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-heading font-bold text-brand-black mb-4">
+            Éditions{" "}
+            <span className="bg-gradient-to-r from-[#DAA520] to-[#e6b800] bg-clip-text text-transparent">
+              Précédentes
+            </span>
+          </h2>
+          <p className="text-lg text-brand-gray max-w-2xl mx-auto">
+            Revivez les moments forts de nos Forums AGROFERA à travers notre galerie photo
+          </p>
+        </motion.div>
+
+        {/* Gallery Grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.1 }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12"
+        >
+          {[
+            "/images/events/lasteditions/DSC_5236.jpg",
+            "/images/events/lasteditions/DSC_5240.jpg",
+            "/images/events/lasteditions/_DSC3596.jpg",
+            "/images/events/lasteditions/DSC_5254.jpg",
+            "/images/events/lasteditions/_DSC3703.jpg",
+            "/images/events/lasteditions/DSC_5277.jpg",
+            "/images/events/lasteditions/_DSC3726.jpg",
+            "/images/events/lasteditions/DSC_5320.jpg",
+            "/images/events/lasteditions/DSC_5349.jpg",
+            "/images/events/lasteditions/_DSC3838.jpg",
+          ].map((img, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ scale: 1.05, y: -8 }}
+              className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
+              <Image
+                src={img}
+                alt="AGROFERA Forum Event"
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Gold Border on Hover */}
+              <div className="absolute inset-0 border-2 border-[#DAA520] opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300 shadow-[0_0_20px_rgba(218,165,32,0.5)]" />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* View All Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h2 font-bold mb-4">
-            Éditions <span className="gradient-text">Précédentes</span>
-          </h2>
-          <p className="text-lg text-brand-gray max-w-2xl mx-auto mb-8">
-            Revivez les moments forts de nos Forums précédents
-          </p>
-
-          {/* Gallery Placeholder */}
-          <div className="bg-brand-neutral/30 rounded-3xl p-16 border-2 border-dashed border-brand-green/30">
-            <Users size={80} className="mx-auto mb-6 text-brand-green/50" />
-            <h3 className="text-2xl font-semibold mb-4 text-brand-black">
-              Galerie Photo
-            </h3>
-            <p className="text-brand-gray mb-4">
-              [PLACEHOLDER: Forum photos from Google Drive folders]
-            </p>
-            <p className="text-sm text-brand-green">
-              Waiting for photo gallery content from your team...
-            </p>
-          </div>
+          <Link href="/evenements#galerie">
+            <Button
+              variant="primary"
+              size="lg"
+              className="group px-8 py-4 text-lg font-semibold shadow-xl shadow-[#DAA520]/20 hover:shadow-2xl hover:shadow-[#DAA520]/30 transition-all duration-300"
+            >
+              <Camera className="w-5 h-5" />
+              Voir toutes les photos
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Past Editions Stats */}

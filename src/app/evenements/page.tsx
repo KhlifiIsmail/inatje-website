@@ -1109,7 +1109,7 @@ const PastEventsSection: React.FC = () => {
         </motion.div>
 
         {/* Photo Gallery Section */}
-        <motion.div variants={fadeInUpVariants} className="space-y-8">
+        <motion.div id="galerie" variants={fadeInUpVariants} className="space-y-8">
           {/* Gallery Header */}
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#DAA520]/10 rounded-full">
