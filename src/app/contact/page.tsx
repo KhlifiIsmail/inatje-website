@@ -17,7 +17,7 @@ import {
   Building,
   MessageSquare,
 } from "lucide-react";
-import Image from 'next/image';
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -591,7 +591,7 @@ export default function ContactPage() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.5366891891986!2d10.182779776550425!3d36.83537886618746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34d55e7d3a97%3A0x764f86ea3f8b9b0a!2sInstitut%20National%20Agronomique%20de%20Tunisie!5e0!3m2!1sen!2stn!4v1710000000000!5m2!1sen!2stn"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '500px' }}
+                style={{ border: 0, minHeight: "500px" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

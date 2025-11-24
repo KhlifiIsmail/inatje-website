@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, BarChart3, Handshake, Megaphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -21,19 +21,19 @@ const navItems = [
         name: "Comité Études et Projets",
         href: "/services/comite-etudes",
         description: "Solutions techniques et études spécialisées",
-        icon: "📊",
+        icon: BarChart3,
       },
       {
         name: "Développement Commercial",
         href: "/services/developpement-commercial",
         description: "Forum d'emploi et opportunités professionnelles",
-        icon: "🤝",
+        icon: Handshake,
       },
       {
         name: "Comité Marketing",
         href: "/services/comite-marketing",
         description: "Communication digitale et présence terrain",
-        icon: "📢",
+        icon: Megaphone,
       },
     ],
   },
@@ -236,9 +236,18 @@ export function Navigation() {
                                         : "bg-gradient-to-br from-brand-green/30 to-blue-500/30"
                                     )}
                                   >
-                                    <span className="text-lg">
-                                      {subItem.icon}
-                                    </span>
+                                    <subItem.icon
+                                      className={cn(
+                                        "transition-colors duration-300",
+                                        pathname === subItem.href
+                                          ? "text-brand-green"
+                                          : shouldUseScrolledStyle
+                                          ? "text-brand-darkgray group-hover:text-brand-green"
+                                          : "text-white group-hover:text-brand-green"
+                                      )}
+                                      size={20}
+                                      strokeWidth={2.5}
+                                    />
                                   </div>
 
                                   {/* Content */}
@@ -404,9 +413,29 @@ export function Navigation() {
                                     "text-brand-green border-brand-green/20 bg-brand-green/5"
                                 )}
                               >
-                                <span className="mr-3 text-base">
-                                  {subItem.icon}
-                                </span>
+                                <div
+                                  className={cn(
+                                    "flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center mr-3 transition-all duration-300",
+                                    pathname === subItem.href
+                                      ? "bg-brand-green/20"
+                                      : shouldUseScrolledStyle
+                                      ? "bg-brand-green/10"
+                                      : "bg-white/10"
+                                  )}
+                                >
+                                  <subItem.icon
+                                    className={cn(
+                                      "transition-colors duration-300",
+                                      pathname === subItem.href
+                                        ? "text-brand-green"
+                                        : shouldUseScrolledStyle
+                                        ? "text-brand-darkgray"
+                                        : "text-gray-300"
+                                    )}
+                                    size={18}
+                                    strokeWidth={2.5}
+                                  />
+                                </div>
                                 <div>
                                   <div className="font-medium">
                                     {subItem.name}
