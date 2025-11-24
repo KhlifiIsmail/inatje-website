@@ -57,14 +57,14 @@ const forumFeatures = [
   },
   {
     icon: Award,
-    title: "Competiton INAT JEnovate",
+    title: "Compétition INAT JEnovate",
     description:
-      "Competition de pitch entre des porteurs de projets de diffrents ecoles et instituts .",
+      "Compétition de pitch entre des porteurs de projets de différentes écoles et institutions.",
     benefits: [
-      "Recompense pour les vainquers",
-      "Opportunite de pitch et presentation",
+      "Récompenses pour les vainqueurs",
+      "Opportunité de pitch et présentation",
       "Encouragement des jeunes porteurs de projets",
-      "Visibilite specialise",
+      "Visibilité spécialisée",
     ],
   },
   {

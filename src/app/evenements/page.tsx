@@ -184,16 +184,16 @@ const EVENT_HIGHLIGHTS: EventHighlight[] = [
     ],
   },
   {
-    title: "Competiton INAT JEnovate",
+    title: "Compétition INAT JEnovate",
     description:
-      "Competition de pitch entre des porteurs de projets de diffrents ecoles et instituts.",
+      "Compétition de pitch entre des porteurs de projets de différentes écoles et institutions.",
     icon: GraduationCap,
     gradient: "from-purple-500 via-purple-600 to-indigo-600",
     features: [
-      "Recompense pour les vainquers",
-      "Opportunite de pitch et presentation",
+      "Récompenses pour les vainqueurs",
+      "Opportunité de pitch et présentation",
       "Encouragement des jeunes porteurs de projets",
-      "Visibilite specialise",
+      "Visibilité spécialisée",
     ],
   },
   {
@@ -325,50 +325,226 @@ const PAST_EDITIONS: PastEvent[] = [
 // Gallery Images Configuration
 const GALLERY_IMAGES = [
   // Distribute sizes for visual variety in masonry
-  { src: "/images/events/lasteditions/_DSC3583 (1).jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/_DSC3596.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/_DSC3623 (1).jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/_DSC3686.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/_DSC3703.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/_DSC3726.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/_DSC3736.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/_DSC3740 (1).jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/_DSC3740.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/_DSC3760.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/_DSC3838.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5236.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5238.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5240.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5243.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5247.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5250.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5254.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5257.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5259.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5277.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5314 (1).jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5316.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5320.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5324.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5330.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5332.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5335.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5338.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5344.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5349.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5373.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5378.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5379.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5385.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5389.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5394 (1).jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5400.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5409.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/DSC_5418.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5425.jpg", alt: "AGROFERA Forum Event", size: "large" as const },
-  { src: "/images/events/lasteditions/DSC_5439.jpg", alt: "AGROFERA Forum Event", size: "medium" as const },
-  { src: "/images/events/lasteditions/DSC_5472.jpg", alt: "AGROFERA Forum Event", size: "small" as const },
-  { src: "/images/events/lasteditions/WhatsApp Image 2024-02-04 at 12.02.13 (1).jpeg", alt: "AGROFERA Forum Event", size: "medium" as const },
+  {
+    src: "/images/events/lasteditions/_DSC3583 (1).jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3596.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3623 (1).jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3686.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3703.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3726.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3736.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3740 (1).jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3740.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3760.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/_DSC3838.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5236.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5238.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5240.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5243.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5247.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5250.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5254.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5257.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5259.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5277.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5314 (1).jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5316.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5320.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5324.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5330.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5332.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5335.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5338.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5344.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5349.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5373.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5378.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5379.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5385.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5389.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5394 (1).jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5400.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5409.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5418.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5425.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "large" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5439.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
+  {
+    src: "/images/events/lasteditions/DSC_5472.jpg",
+    alt: "AGROFERA Forum Event",
+    size: "small" as const,
+  },
+  {
+    src: "/images/events/lasteditions/WhatsApp Image 2024-02-04 at 12.02.13 (1).jpeg",
+    alt: "AGROFERA Forum Event",
+    size: "medium" as const,
+  },
 ];
 
 // ============================================================================
@@ -1109,7 +1285,11 @@ const PastEventsSection: React.FC = () => {
         </motion.div>
 
         {/* Photo Gallery Section */}
-        <motion.div id="galerie" variants={fadeInUpVariants} className="space-y-8">
+        <motion.div
+          id="galerie"
+          variants={fadeInUpVariants}
+          className="space-y-8"
+        >
           {/* Gallery Header */}
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#DAA520]/10 rounded-full">
@@ -1131,7 +1311,11 @@ const PastEventsSection: React.FC = () => {
           </div>
 
           {/* Gallery Component */}
-          <EventGallery images={GALLERY_IMAGES} initialLoadCount={12} loadMoreCount={12} />
+          <EventGallery
+            images={GALLERY_IMAGES}
+            initialLoadCount={12}
+            loadMoreCount={12}
+          />
         </motion.div>
       </motion.div>
     </section>
