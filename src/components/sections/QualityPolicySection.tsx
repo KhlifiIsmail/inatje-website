@@ -80,7 +80,7 @@ export function QualityPolicySection() {
 
               {/* CTA Button */}
               <a
-                href="https://docs.google.com/document/d/15M3ctuDSxiBfY2OyWKsJ87KmXBff67LDW0ILQcxwWV4/edit?tab=t.0"
+                href="/pdf/PQ-Version-com.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
